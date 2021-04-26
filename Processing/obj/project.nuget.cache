@@ -1,0 +1,22 @@
+{
+  "version": 2,
+  "dgSpecHash": "kWKQrMz4i8n6taF2XrNjLNVqjdbeua/4b9Gg8vssi2viysbN1y31r7G3ICKQgVtlqNIQtjYoCk3t5sq4DdBy+A==",
+  "success": true,
+  "projectFilePath": "D:\\Dick-lom\\Dickлом\\CorrectTranslation\\Processing\\Processing.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Andrey\\.nuget\\packages\\csharpmath\\0.4.2\\csharpmath.0.4.2.nupkg.sha512",
+    "C:\\Users\\Andrey\\.nuget\\packages\\csharpmath.editor\\0.4.2\\csharpmath.editor.0.4.2.nupkg.sha512",
+    "C:\\Users\\Andrey\\.nuget\\packages\\csharpmath.rendering\\0.4.2\\csharpmath.rendering.0.4.2.nupkg.sha512",
+    "C:\\Users\\Andrey\\.nuget\\packages\\csharpmath.skiasharp\\0.4.2\\csharpmath.skiasharp.0.4.2.nupkg.sha512",
+    "C:\\Users\\Andrey\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\Andrey\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
+    "C:\\Users\\Andrey\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
+    "C:\\Users\\Andrey\\.nuget\\packages\\skiasharp\\1.68.0\\skiasharp.1.68.0.nupkg.sha512",
+    "C:\\Users\\Andrey\\.nuget\\packages\\system.buffers\\4.5.0\\system.buffers.4.5.0.nupkg.sha512",
+    "C:\\Users\\Andrey\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",
+    "C:\\Users\\Andrey\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
+    "C:\\Users\\Andrey\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\5.0.0\\system.runtime.compilerservices.unsafe.5.0.0.nupkg.sha512",
+    "C:\\Users\\Andrey\\.nuget\\packages\\system.text.encoding.codepages\\5.0.0\\system.text.encoding.codepages.5.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

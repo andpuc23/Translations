@@ -1,0 +1,70 @@
+05.40.13		Logging started
+05.42.16		Logging started
+05.42.57		Logging started
+05.46.16		Logging started
+05.47.46		Logging started
+10.38.44		Logging started
+10.38.55		Reading file: D:\Dick-lom\Dickлом\Combined exact algoritmZhukovaUlyanovFomicev_ed_last.tex
+10.41.07		Logging started
+10.41.14		Reading file: D:\Dick-lom\Dickлом\Combined exact algoritmZhukovaUlyanovFomicev_ed_last.tex
+10.42.49		Reading file: D:\Dick-lom\Dickлом\Combined exact algoritmZhukovaUlyanovFomicev_ed_last.tex
+10.43.58		Reading file: D:\Dick-lom\Dickлом\Combined exact algoritmZhukovaUlyanovFomicev_ed_last.tex
+10.48.24		Reading file: D:\Dick-lom\Dickлом\Combined exact algoritmZhukovaUlyanovFomicev_ed_last.tex
+10.49.31		Logging started
+10.49.39		Reading file: D:\Dick-lom\Dickлом\Combined exact algoritmZhukovaUlyanovFomicev_ed_last.tex
+10.54.56		Logging started
+10.55.01		Reading file: D:\Dick-lom\Dickлом\Combined exact algoritmZhukovaUlyanovFomicev_ed_last.tex
+10.55.20		Logging started
+10.55.23		Reading file: D:\Dick-lom\Dickлом\Combined exact algoritmZhukovaUlyanovFomicev_ed_last.tex
+10.55.32		Read file: D:\Dick-lom\Dickлом\Combined exact algoritmZhukovaUlyanovFomicev_ed_last.tex successfully, length: 52779
+10.55.43		formulas replaced with [dish], found 29 new values
+10.55.43		special characters replaced with [plate], found 261 new values
+10.55.43		SendRequest for translation: ["[\"%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%]
+10.55.45		Got response for translation: [%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%]
+10.55.45		SendRequest for translation: ["[\"со стоимостью, превышающей не более чем на 538]
+10.55.47		Got response for translation: [with a cost exceeding by no more than 538plate the]
+10.55.47		SendRequest for translation: ["[\"Depending on the characteristics of the indivi]
+10.55.47		Got response for translation: [Depending on the characteristics of the individual]
+10.55.47		SendRequest for translation: ["[\"Именно благодаря этому свойству, алгоритм LKH ]
+10.55.48		Got response for translation: [It is due to this property that the LKH algorithm ]
+10.55.48		SendRequest for translation: ["[\"%39plate и 105plate  \\n  \\n Для выборок врем]
+10.55.48		Got response for translation: [%39plate and 105plate 
+
+ For samples of work time ]
+10.55.48		SendRequest for translation: ["[\" \\n  \\n Ввиду того, что логарифмическая функ]
+10.55.50		Got response for translation: [ 
+ 
+ Due to the fact that the logarithm function i]
+10.55.50		SendRequest for translation: ["[\"145plate представлены относительные отличия (в]
+10.55.51		Got response for translation: [145plate presents the relative differences (in 38p]
+10.55.51		SendRequest for translation: ["[\"откл.,  38plate\\\\13plate\\n  %&прогноз&выбор]
+10.55.51		Got response for translation: [откл.,  38plate\13plate
+  %&прогноз&выборка&& прог]
+10.55.51		SendRequest for translation: ["[\"В этом случае ускорение расчетов благодаря нал]
+10.55.51		Got response for translation: [In this case, the acceleration of the calculations]
+10.55.51		SendRequest for translation: ["[\" \\n  \\n  \\n Из выборок объема 10000 для каж]
+10.55.52		Got response for translation: [ 
+ 
+ 
+ From samples of volume 10000 for each dimen]
+10.55.52		SendRequest for translation: ["[\"\\n  \\n В связи с этим каждая выборка 10000 м]
+10.55.53		Got response for translation: [
+ 
+ In this regard, each sample was 10000 matrices]
+10.55.53		SendRequest for translation: ["[\" \\n  \\n  \\n  \\n  \\n 56plate{Заключение} \]
+10.55.54		Got response for translation: [ 
+ 
+ 
+ 
+ 
+ 56plate{Conclusion} 
+ 
+ In the article,]
+10.55.54		SendRequest for translation: ["[\"\\n  \\n  \\n %подумать! \\n 220plate \\n {18p]
+10.55.55		Got response for translation: [
+ 
+ 
+ %think! 
+ 220plate 
+ {18plate Matai R., Mitt]
+10.55.55		written text to file [../../../../translation.tex]

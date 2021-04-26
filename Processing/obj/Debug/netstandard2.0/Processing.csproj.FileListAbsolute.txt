@@ -1,0 +1,14 @@
+D:\Dick-lom\Dickлом\CorrectTranslation\Processing\bin\Debug\netstandard2.0\Processing.deps.json
+D:\Dick-lom\Dickлом\CorrectTranslation\Processing\bin\Debug\netstandard2.0\Processing.dll
+D:\Dick-lom\Dickлом\CorrectTranslation\Processing\bin\Debug\netstandard2.0\Processing.pdb
+D:\Dick-lom\Dickлом\CorrectTranslation\Processing\bin\Debug\netstandard2.0\IO.dll
+D:\Dick-lom\Dickлом\CorrectTranslation\Processing\bin\Debug\netstandard2.0\Objects.dll
+D:\Dick-lom\Dickлом\CorrectTranslation\Processing\bin\Debug\netstandard2.0\IO.pdb
+D:\Dick-lom\Dickлом\CorrectTranslation\Processing\bin\Debug\netstandard2.0\Objects.pdb
+D:\Dick-lom\Dickлом\CorrectTranslation\Processing\obj\Debug\netstandard2.0\Processing.csprojAssemblyReference.cache
+D:\Dick-lom\Dickлом\CorrectTranslation\Processing\obj\Debug\netstandard2.0\Processing.AssemblyInfoInputs.cache
+D:\Dick-lom\Dickлом\CorrectTranslation\Processing\obj\Debug\netstandard2.0\Processing.AssemblyInfo.cs
+D:\Dick-lom\Dickлом\CorrectTranslation\Processing\obj\Debug\netstandard2.0\Processing.csproj.CoreCompileInputs.cache
+D:\Dick-lom\Dickлом\CorrectTranslation\Processing\obj\Debug\netstandard2.0\Processing.csproj.CopyComplete
+D:\Dick-lom\Dickлом\CorrectTranslation\Processing\obj\Debug\netstandard2.0\Processing.dll
+D:\Dick-lom\Dickлом\CorrectTranslation\Processing\obj\Debug\netstandard2.0\Processing.pdb

@@ -1,0 +1,252 @@
+{
+  "runtimeTarget": {
+    "name": ".NETStandard,Version=v2.0/",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETStandard,Version=v2.0": {},
+    ".NETStandard,Version=v2.0/": {
+      "IO/1.0.0": {
+        "dependencies": {
+          "CSharpMath.SkiaSharp": "0.4.2",
+          "NETStandard.Library": "2.0.3",
+          "Objects": "1.0.0",
+          "System.Text.Encoding.CodePages": "5.0.0"
+        },
+        "runtime": {
+          "IO.dll": {}
+        }
+      },
+      "CSharpMath/0.4.2": {
+        "dependencies": {
+          "System.Buffers": "4.5.0",
+          "System.Memory": "4.5.3",
+          "System.Runtime.CompilerServices.Unsafe": "5.0.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/CSharpMath.dll": {
+            "assemblyVersion": "0.4.2.0",
+            "fileVersion": "0.4.2.0"
+          }
+        }
+      },
+      "CSharpMath.Editor/0.4.2": {
+        "dependencies": {
+          "CSharpMath": "0.4.2"
+        },
+        "runtime": {
+          "lib/netstandard2.0/CSharpMath.Editor.dll": {
+            "assemblyVersion": "0.4.2.0",
+            "fileVersion": "0.4.2.0"
+          }
+        }
+      },
+      "CSharpMath.Rendering/0.4.2": {
+        "dependencies": {
+          "CSharpMath.Editor": "0.4.2",
+          "System.Numerics.Vectors": "4.5.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/CSharpMath.Rendering.dll": {
+            "assemblyVersion": "0.4.2.0",
+            "fileVersion": "0.4.2.0"
+          }
+        }
+      },
+      "CSharpMath.SkiaSharp/0.4.2": {
+        "dependencies": {
+          "CSharpMath.Rendering": "0.4.2",
+          "SkiaSharp": "1.68.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/CSharpMath.SkiaSharp.dll": {
+            "assemblyVersion": "0.4.2.0",
+            "fileVersion": "0.4.2.0"
+          }
+        }
+      },
+      "Microsoft.NETCore.Platforms/1.1.0": {},
+      "NETStandard.Library/2.0.3": {
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "1.1.0"
+        }
+      },
+      "Newtonsoft.Json/12.0.3": {
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+            "assemblyVersion": "12.0.0.0",
+            "fileVersion": "12.0.3.23909"
+          }
+        }
+      },
+      "SkiaSharp/1.68.0": {
+        "runtime": {
+          "lib/netstandard1.3/SkiaSharp.dll": {
+            "assemblyVersion": "1.68.0.0",
+            "fileVersion": "1.68.0.0"
+          }
+        }
+      },
+      "System.Buffers/4.5.0": {
+        "runtime": {
+          "lib/netstandard2.0/System.Buffers.dll": {
+            "assemblyVersion": "4.0.3.0",
+            "fileVersion": "4.6.26515.6"
+          }
+        }
+      },
+      "System.Memory/4.5.3": {
+        "dependencies": {
+          "System.Buffers": "4.5.0",
+          "System.Numerics.Vectors": "4.5.0",
+          "System.Runtime.CompilerServices.Unsafe": "5.0.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Memory.dll": {
+            "assemblyVersion": "4.0.1.1",
+            "fileVersion": "4.6.27617.2"
+          }
+        }
+      },
+      "System.Numerics.Vectors/4.5.0": {
+        "runtime": {
+          "lib/netstandard2.0/System.Numerics.Vectors.dll": {
+            "assemblyVersion": "4.1.4.0",
+            "fileVersion": "4.6.26515.6"
+          }
+        }
+      },
+      "System.Runtime.CompilerServices.Unsafe/5.0.0": {
+        "runtime": {
+          "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.0.20.51904"
+          }
+        }
+      },
+      "System.Text.Encoding.CodePages/5.0.0": {
+        "dependencies": {
+          "System.Runtime.CompilerServices.Unsafe": "5.0.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Text.Encoding.CodePages.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.0.20.51904"
+          }
+        }
+      },
+      "Objects/1.0.0": {
+        "dependencies": {
+          "Newtonsoft.Json": "12.0.3"
+        },
+        "runtime": {
+          "Objects.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "IO/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "CSharpMath/0.4.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-dA6gYDAyA57aTjGNo1oVSaZ5RWv/o8m4jxgprx5DjlX0Xq1FVTK9FWRZxwx6Js8cocLJLIAna9gcUaFQhJ4Waw==",
+      "path": "csharpmath/0.4.2",
+      "hashPath": "csharpmath.0.4.2.nupkg.sha512"
+    },
+    "CSharpMath.Editor/0.4.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-otoRH8bIeSfII1TKBnKpZ0lMZ/g/WnkQ9V1cMnQoo1QLdlYLn2WO2WjqzvtGmAYGdoSNRJYAgj97ammrpkHkgg==",
+      "path": "csharpmath.editor/0.4.2",
+      "hashPath": "csharpmath.editor.0.4.2.nupkg.sha512"
+    },
+    "CSharpMath.Rendering/0.4.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-eo7vGSbsHFxGNI4DmnfPSDxCubQac5vuRInRZDIeIzQCkKpphK8wMn/nAOy6IJHA3R6r8BHbYDt4Zh8JZSXw6A==",
+      "path": "csharpmath.rendering/0.4.2",
+      "hashPath": "csharpmath.rendering.0.4.2.nupkg.sha512"
+    },
+    "CSharpMath.SkiaSharp/0.4.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-w6KC1CaPL/KaFPSsAiU5zhRJp3bIKf+v02gkrxvVlMqEgghincnEfmn1JcaKQMWDOouChcedBEewbDnj8FNHgw==",
+      "path": "csharpmath.skiasharp/0.4.2",
+      "hashPath": "csharpmath.skiasharp.0.4.2.nupkg.sha512"
+    },
+    "Microsoft.NETCore.Platforms/1.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-kz0PEW2lhqygehI/d6XsPCQzD7ff7gUJaVGPVETX611eadGsA3A877GdSlU0LRVMCTH/+P3o2iDTak+S08V2+A==",
+      "path": "microsoft.netcore.platforms/1.1.0",
+      "hashPath": "microsoft.netcore.platforms.1.1.0.nupkg.sha512"
+    },
+    "NETStandard.Library/2.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-st47PosZSHrjECdjeIzZQbzivYBJFv6P2nv4cj2ypdI204DO+vZ7l5raGMiX4eXMJ53RfOIg+/s4DHVZ54Nu2A==",
+      "path": "netstandard.library/2.0.3",
+      "hashPath": "netstandard.library.2.0.3.nupkg.sha512"
+    },
+    "Newtonsoft.Json/12.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-6mgjfnRB4jKMlzHSl+VD+oUc1IebOZabkbyWj2RiTgWwYPPuaK1H97G1sHqGwPlS5npiF5Q0OrxN1wni2n5QWg==",
+      "path": "newtonsoft.json/12.0.3",
+      "hashPath": "newtonsoft.json.12.0.3.nupkg.sha512"
+    },
+    "SkiaSharp/1.68.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ptuxAKk9FiClNnAgWM8hVMCYw/B0hUJWZ8W6efnIAtJmJn/Xl4jvxxDF5WOqfQYCLVzxXw5gvBPVxvTLblFp0g==",
+      "path": "skiasharp/1.68.0",
+      "hashPath": "skiasharp.1.68.0.nupkg.sha512"
+    },
+    "System.Buffers/4.5.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-pL2ChpaRRWI/p4LXyy4RgeWlYF2sgfj/pnVMvBqwNFr5cXg7CXNnWZWxrOONLg8VGdFB8oB+EG2Qw4MLgTOe+A==",
+      "path": "system.buffers/4.5.0",
+      "hashPath": "system.buffers.4.5.0.nupkg.sha512"
+    },
+    "System.Memory/4.5.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-3oDzvc/zzetpTKWMShs1AADwZjQ/36HnsufHRPcOjyRAAMLDlu2iD33MBI2opxnezcVUtXyqDXXjoFMOU9c7SA==",
+      "path": "system.memory/4.5.3",
+      "hashPath": "system.memory.4.5.3.nupkg.sha512"
+    },
+    "System.Numerics.Vectors/4.5.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-QQTlPTl06J/iiDbJCiepZ4H//BVraReU4O4EoRw1U02H5TLUIT7xn3GnDp9AXPSlJUDyFs4uWjWafNX6WrAojQ==",
+      "path": "system.numerics.vectors/4.5.0",
+      "hashPath": "system.numerics.vectors.4.5.0.nupkg.sha512"
+    },
+    "System.Runtime.CompilerServices.Unsafe/5.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ZD9TMpsmYJLrxbbmdvhwt9YEgG5WntEnZ/d1eH8JBX9LBp+Ju8BSBhUGbZMNVHHomWo2KVImJhTDl2hIgw/6MA==",
+      "path": "system.runtime.compilerservices.unsafe/5.0.0",
+      "hashPath": "system.runtime.compilerservices.unsafe.5.0.0.nupkg.sha512"
+    },
+    "System.Text.Encoding.CodePages/5.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-NyscU59xX6Uo91qvhOs2Ccho3AR2TnZPomo1Z0K6YpyztBPM/A5VbkzOO19sy3A3i1TtEnTxA7bCe3Us+r5MWg==",
+      "path": "system.text.encoding.codepages/5.0.0",
+      "hashPath": "system.text.encoding.codepages.5.0.0.nupkg.sha512"
+    },
+    "Objects/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

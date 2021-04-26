@@ -1,0 +1,12 @@
+D:\Dick-lom\Dickлом\CorrectTranslation\IO\bin\Debug\netstandard2.0\IO.deps.json
+D:\Dick-lom\Dickлом\CorrectTranslation\IO\bin\Debug\netstandard2.0\IO.dll
+D:\Dick-lom\Dickлом\CorrectTranslation\IO\bin\Debug\netstandard2.0\IO.pdb
+D:\Dick-lom\Dickлом\CorrectTranslation\IO\bin\Debug\netstandard2.0\Objects.dll
+D:\Dick-lom\Dickлом\CorrectTranslation\IO\bin\Debug\netstandard2.0\Objects.pdb
+D:\Dick-lom\Dickлом\CorrectTranslation\IO\obj\Debug\netstandard2.0\IO.csprojAssemblyReference.cache
+D:\Dick-lom\Dickлом\CorrectTranslation\IO\obj\Debug\netstandard2.0\IO.AssemblyInfoInputs.cache
+D:\Dick-lom\Dickлом\CorrectTranslation\IO\obj\Debug\netstandard2.0\IO.AssemblyInfo.cs
+D:\Dick-lom\Dickлом\CorrectTranslation\IO\obj\Debug\netstandard2.0\IO.csproj.CoreCompileInputs.cache
+D:\Dick-lom\Dickлом\CorrectTranslation\IO\obj\Debug\netstandard2.0\IO.csproj.CopyComplete
+D:\Dick-lom\Dickлом\CorrectTranslation\IO\obj\Debug\netstandard2.0\IO.dll
+D:\Dick-lom\Dickлом\CorrectTranslation\IO\obj\Debug\netstandard2.0\IO.pdb

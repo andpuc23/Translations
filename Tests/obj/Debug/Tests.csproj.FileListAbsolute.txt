@@ -1,0 +1,10 @@
+D:\Dick-lom\Dickлом\CorrectTranslation\Tests\bin\Debug\Tests.exe.config
+D:\Dick-lom\Dickлом\CorrectTranslation\Tests\bin\Debug\Tests.exe
+D:\Dick-lom\Dickлом\CorrectTranslation\Tests\bin\Debug\Tests.pdb
+D:\Dick-lom\Dickлом\CorrectTranslation\Tests\bin\Debug\Newtonsoft.Json.dll
+D:\Dick-lom\Dickлом\CorrectTranslation\Tests\bin\Debug\Newtonsoft.Json.xml
+D:\Dick-lom\Dickлом\CorrectTranslation\Tests\obj\Debug\Tests.csprojAssemblyReference.cache
+D:\Dick-lom\Dickлом\CorrectTranslation\Tests\obj\Debug\Tests.csproj.CoreCompileInputs.cache
+D:\Dick-lom\Dickлом\CorrectTranslation\Tests\obj\Debug\Tests.csproj.CopyComplete
+D:\Dick-lom\Dickлом\CorrectTranslation\Tests\obj\Debug\Tests.exe
+D:\Dick-lom\Dickлом\CorrectTranslation\Tests\obj\Debug\Tests.pdb

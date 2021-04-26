@@ -1,0 +1,6 @@
+D:\Dick-lom\Dickлом\CorrectTranslation\CorrectTranslation\obj\Debug\net5.0-windows\CorrectTranslation.csprojAssemblyReference.cache
+D:\Dick-lom\Dickлом\CorrectTranslation\CorrectTranslation\obj\Debug\net5.0-windows\CorrectTranslation.Form1.resources
+D:\Dick-lom\Dickлом\CorrectTranslation\CorrectTranslation\obj\Debug\net5.0-windows\CorrectTranslation.Properties.Resources.resources
+D:\Dick-lom\Dickлом\CorrectTranslation\CorrectTranslation\obj\Debug\net5.0-windows\CorrectTranslation.csproj.GenerateResource.cache
+D:\Dick-lom\Dickлом\CorrectTranslation\CorrectTranslation\obj\Debug\net5.0-windows\CorrectTranslation.GeneratedMSBuildEditorConfig.editorconfig
+D:\Dick-lom\Dickлом\CorrectTranslation\CorrectTranslation\obj\Debug\net5.0-windows\CorrectTranslation.csproj.CoreCompileInputs.cache

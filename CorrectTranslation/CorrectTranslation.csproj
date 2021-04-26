@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net472</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\IO\IO.csproj" />
+    <ProjectReference Include="..\Objects\Objects.csproj" />
+    <ProjectReference Include="..\Processing\Processing.csproj" />
+  </ItemGroup>
+
+</Project>
