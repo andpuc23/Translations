@@ -17,6 +17,8 @@ namespace CorrectTranslation
     {
         Config config;
         private const string config_path = "../../../../config.json";
+
+        public string Encoding;
         public Form1()
         {
             InitializeComponent();
@@ -62,25 +64,26 @@ namespace CorrectTranslation
             }
 
             var paragraphs = OrigRTB.Text.GetParagraphs();
-
-            paragraphsCB.Items.Clear();
-            paragraphsCB.Items.AddRange( paragraphs.Select(x => x.Length > 50 ? x.Substring(0,50) : x ).ToArray() );
         }
 
 
         private void translateBtn_Click( object sender, EventArgs e )
         {
             string text = OrigRTB.Text;
-            text = text.PreprocessText();
-            var titles = text.GetTitles();
+            text = text.PreprocessText( out bool ok );
+            if ( !ok )
+            {
+                var form = new EncodingForm( this );
+                form.ShowDialog();
+                text = text.ReEncodeToUTF8( out bool Ok, Encoding );
+                text = text.ReplaceQuotes().SetSpaces();
+            }
 
             List<Replacement> replacements;
             text = text.ReplaceFormulas( config, out replacements );
 
 
             text = text.ReplaceSymbols( config, out var charReplacements );
-
-            //replacements.AddRange( charReplacements );
 
             var toTranslate = text.GetSentences();
             var translations = SendSeveralRequests( toTranslate );
@@ -94,12 +97,7 @@ namespace CorrectTranslation
 
             string translatedText = string.Join( ". ", translations.Select( x => string.Join( "\n", x.Text ) ).ToArray() );
 
-            translatedText = translatedText.SubstituteReplacements( replacements );
-            translatedText = translatedText.SubstituteReplacements( charReplacements );
-
-            
-
-            Writer.WriteText( translatedText, "../../../../translation.tex" );
+            translatedText = translatedText.PostprocessText( replacements, charReplacements );
 
             translateRTB.Text = translatedText;
         }
@@ -109,26 +107,8 @@ namespace CorrectTranslation
             int totalLength = to_translate.Select( x => x.Length ).Sum();
             if ( totalLength < config.SingleRequestSize ) //все поместится в один запрос
             {
-                var content = new Dictionary<string, string>()
-                {
-                    [ "folder_id" ] = config.folder_id,
-                    [ "texts" ] = JsonConvert.SerializeObject( to_translate ),
-                    [ "targetLanguageCode" ] = "en"
-                };
-
-                var request = (HttpWebRequest) WebRequest.Create( config.translate_url );
-                request.ContentType = "application/json";
-                request.Method = "POST";
-                request.Headers.Add( "Authorization", "Bearer " + config.iam_token );
-
-                using ( var streamWriter = new StreamWriter( request.GetRequestStream() ) )
-                {
-                    streamWriter.Write( JsonConvert.SerializeObject( content ) );
-                }
-                var response = request.GetResponse();
-                var yResp = JsonConvert.DeserializeObject<TranslationResponse>(
-                    new StreamReader( response.GetResponseStream() ).ReadToEnd() );
-                return yResp.Translations;
+                var resp = SendRequest( JsonConvert.SerializeObject( to_translate ) );
+                return resp.Translations;
             }
             else
             {
@@ -148,6 +128,8 @@ namespace CorrectTranslation
                     {
                         partToTranslate.RemoveAll( x => x == "" );
                         var response = SendRequest( JsonConvert.SerializeObject( partToTranslate ) );
+                        if ( response is null )
+                            continue;
                         results.AddRange( response?.Translations ?? new List<Translation>());
                         i--;
                         partToTranslate.Clear();
@@ -245,6 +227,48 @@ namespace CorrectTranslation
                 string directory = Path.GetDirectoryName( filepath );
                 Writer.RenderLaTeX( content, directory + "/render.png" );
             }
+        }
+
+        private void button1_Click( object sender, EventArgs e )
+        {
+            string text = OrigRTB.SelectedText;
+            text = text.PreprocessText( out bool ok );
+            if ( !ok )
+            {
+                var form = new EncodingForm( this );
+                form.ShowDialog();
+                text = text.ReEncodeToUTF8( out bool Ok, Encoding );
+                text = text.ReplaceQuotes().SetSpaces();
+            }
+
+            List<Replacement> replacements;
+            text = text.ReplaceFormulas( config, out replacements );
+
+
+            text = text.ReplaceSymbols( config, out var charReplacements );
+
+            var toTranslate = text.GetSentences();
+            var translations = SendSeveralRequests( toTranslate );
+
+            if ( translations is null )
+            {
+                Writer.Log( "Remote server returned empty response" );
+                MessageBox.Show( "Response is empty, pls try again!", "Remote server error" );
+                return;
+            }
+
+            string translatedText = string.Join( ". ", translations.Select( x => string.Join( "\n", x.Text ) ).ToArray() );
+
+            translatedText = translatedText.SubstituteReplacements( replacements );
+            translatedText = translatedText.SubstituteReplacements( charReplacements );
+
+            translateRTB.Text = translatedText;
+        }
+
+        private void SaveBtn_Click( object sender, EventArgs e )
+        {
+            Writer.WriteText( translateRTB.Text, "../../../translation.tex" );
+            MessageBox.Show( "Перевод сохранен в " + Path.GetFullPath( "../../../translation.tex" ), "Успех" );
         }
     }
 }

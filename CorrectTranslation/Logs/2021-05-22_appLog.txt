@@ -1,0 +1,151 @@
+07.46.59		Logging started
+07.47.04		Reading file: D:\Dick-lom\Dickлом\Combined exact algoritmZhukovaUlyanovFomicev_ed_last.tex
+07.47.04		Read file: D:\Dick-lom\Dickлом\Combined exact algoritmZhukovaUlyanovFomicev_ed_last.tex successfully, length: 52791
+07.47.06		formulas replaced with [dish], found 29 new values
+07.47.06		special characters replaced with [plate], found 261 new values
+07.47.06		SendRequest for translation: ["[\"%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%]
+07.47.06		Got response for translation: [%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%]
+07.47.06		SendRequest for translation: ["[\"\\n %13platecite{Oliver},13platecite{Cotta},13]
+07.47.07		Got response for translation: [
+ %13platecite{Oliver},13platecite{Cotta},13platec]
+07.47.07		SendRequest for translation: ["[\"\\n 13plateitem Formulation of recommendations]
+07.47.07		Got response for translation: [
+ 13plateitem Formulation of recommendations for u]
+07.47.07		SendRequest for translation: ["[\"\\n  \\n На основе предварительного анализа ли]
+07.47.07		Got response for translation: [
+ 
+ Based on a preliminary analysis of literature ]
+07.47.07		SendRequest for translation: ["[\"\\n  \\n Также можно заметить, что максимально]
+07.48.28		Logging started
+07.48.31		Reading file: D:\Dick-lom\Dickлом\Combined exact algoritmZhukovaUlyanovFomicev_ed_last.tex
+07.48.31		Read file: D:\Dick-lom\Dickлом\Combined exact algoritmZhukovaUlyanovFomicev_ed_last.tex successfully, length: 52791
+07.48.32		formulas replaced with [dish], found 29 new values
+07.48.32		special characters replaced with [plate], found 261 new values
+07.48.32		SendRequest for translation: ["[\"%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%]
+07.48.32		Got response for translation: [%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%]
+07.48.32		SendRequest for translation: ["[\"\\n %13platecite{Oliver},13platecite{Cotta},13]
+07.48.32		Got response for translation: [
+ %13platecite{Oliver},13platecite{Cotta},13platec]
+07.48.32		SendRequest for translation: ["[\"\\n 13plateitem Formulation of recommendations]
+07.48.32		Got response for translation: [
+ 13plateitem Formulation of recommendations for u]
+07.48.32		SendRequest for translation: ["[\"\\n  \\n На основе предварительного анализа ли]
+07.48.32		Got response for translation: [
+ 
+ Based on a preliminary analysis of literature ]
+07.48.32		SendRequest for translation: ["[\"\\n  \\n Также можно заметить, что максимально]
+07.51.43		Logging started
+07.51.45		Reading file: D:\Dick-lom\Dickлом\Combined exact algoritmZhukovaUlyanovFomicev_ed_last.tex
+07.51.45		Read file: D:\Dick-lom\Dickлом\Combined exact algoritmZhukovaUlyanovFomicev_ed_last.tex successfully, length: 52791
+07.51.46		formulas replaced with [dish], found 29 new values
+07.51.46		special characters replaced with [plate], found 261 new values
+07.51.46		SendRequest for translation: ["[\"%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%]
+07.51.47		Got response for translation: [%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%]
+07.51.47		SendRequest for translation: ["[\"\\n %13platecite{Oliver},13platecite{Cotta},13]
+07.51.48		Got response for translation: [
+ %13platecite{Oliver},13platecite{Cotta},13platec]
+07.51.48		SendRequest for translation: ["[\"\\n 13plateitem Formulation of recommendations]
+07.51.48		Got response for translation: [
+ 13plateitem Formulation of recommendations for u]
+07.51.48		SendRequest for translation: ["[\"\\n  \\n На основе предварительного анализа ли]
+07.51.48		Got response for translation: [
+ 
+ Based on a preliminary analysis of literature ]
+07.51.48		SendRequest for translation: ["[\"\\n  \\n Также можно заметить, что максимально]
+07.52.33		Logging started
+07.52.34		Reading file: D:\Dick-lom\Dickлом\Combined exact algoritmZhukovaUlyanovFomicev_ed_last.tex
+07.52.34		Read file: D:\Dick-lom\Dickлом\Combined exact algoritmZhukovaUlyanovFomicev_ed_last.tex successfully, length: 52791
+07.52.35		formulas replaced with [dish], found 29 new values
+07.52.35		special characters replaced with [plate], found 261 new values
+07.52.35		SendRequest for translation: ["[\"%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%]
+07.52.35		Got response for translation: [%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%]
+07.52.35		SendRequest for translation: ["[\"\\n %13platecite{Oliver},13platecite{Cotta},13]
+07.52.35		Got response for translation: [
+ %13platecite{Oliver},13platecite{Cotta},13platec]
+07.52.35		SendRequest for translation: ["[\"\\n 13plateitem Formulation of recommendations]
+07.52.36		Got response for translation: [
+ 13plateitem Formulation of recommendations for u]
+07.52.36		SendRequest for translation: ["[\"\\n  \\n На основе предварительного анализа ли]
+07.52.36		Got response for translation: [
+ 
+ Based on a preliminary analysis of literature ]
+07.52.36		SendRequest for translation: ["[\"\\n  \\n Также можно заметить, что максимально]
+07.53.34		Logging started
+07.53.39		Reading file: D:\Dick-lom\Dickлом\Combined exact algoritmZhukovaUlyanovFomicev_ed_last.tex
+07.53.39		Read file: D:\Dick-lom\Dickлом\Combined exact algoritmZhukovaUlyanovFomicev_ed_last.tex successfully, length: 52791
+07.53.40		formulas replaced with [dish], found 29 new values
+07.53.40		special characters replaced with [plate], found 261 new values
+07.53.40		SendRequest for translation: ["[\"%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%]
+07.53.41		Got response for translation: [%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%]
+07.53.41		SendRequest for translation: ["[\"\\n %13platecite{Oliver},13platecite{Cotta},13]
+07.53.41		Got response for translation: [
+ %13platecite{Oliver},13platecite{Cotta},13platec]
+07.53.41		SendRequest for translation: ["[\"\\n 13plateitem Formulation of recommendations]
+07.53.41		Got response for translation: [
+ 13plateitem Formulation of recommendations for u]
+07.53.41		SendRequest for translation: ["[\"\\n  \\n На основе предварительного анализа ли]
+07.53.41		Got response for translation: [
+ 
+ Based on a preliminary analysis of literature ]
+07.53.41		SendRequest for translation: ["[\"\\n  \\n Также можно заметить, что максимально]
+07.53.41		Got response for translation: [
+ 
+ You can also notice that the maximum running t]
+07.53.41		SendRequest for translation: ["[\"Полученные линейные функции были использованы ]
+07.53.42		Got response for translation: [The obtained linear functions were used to approxi]
+07.53.42		SendRequest for translation: ["[\" \\n  \\n 13platesection{Построение прогноза и]
+07.53.46		Got response for translation: [ 
+  
+ 13platesection{Making a forecast and evaluat]
+07.53.46		SendRequest for translation: ["[\"13plateref{tab_everage50_65}   приведены прогн]
+07.53.47		Got response for translation: [13plateref{tab_everage50_65} shows the predicted v]
+07.55.51		Logging started
+07.55.52		Reading file: D:\Dick-lom\Dickлом\Combined exact algoritmZhukovaUlyanovFomicev_ed_last.tex
+07.55.52		Read file: D:\Dick-lom\Dickлом\Combined exact algoritmZhukovaUlyanovFomicev_ed_last.tex successfully, length: 52791
+07.55.53		formulas replaced with [dish], found 29 new values
+07.55.53		special characters replaced with [plate], found 261 new values
+07.55.53		SendRequest for translation: ["[\"%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%]
+07.55.53		Got response for translation: [%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%]
+07.55.53		SendRequest for translation: ["[\"\\n %13platecite{Oliver},13platecite{Cotta},13]
+07.55.53		Got response for translation: [
+ %13platecite{Oliver},13platecite{Cotta},13platec]
+07.55.53		SendRequest for translation: ["[\"\\n 13plateitem Formulation of recommendations]
+07.55.53		Got response for translation: [
+ 13plateitem Formulation of recommendations for u]
+07.55.53		SendRequest for translation: ["[\"\\n  \\n На основе предварительного анализа ли]
+07.55.53		Got response for translation: [
+ 
+ Based on a preliminary analysis of literature ]
+07.55.53		SendRequest for translation: ["[\"\\n  \\n Также можно заметить, что максимально]
+07.55.54		Got response for translation: [
+ 
+ You can also notice that the maximum running t]
+07.55.54		SendRequest for translation: ["[\"Полученные линейные функции были использованы ]
+07.55.54		Got response for translation: [The obtained linear functions were used to approxi]
+07.55.54		SendRequest for translation: ["[\" \\n  \\n 13platesection{Построение прогноза и]
+07.55.55		Got response for translation: [ 
+  
+ 13platesection{Making a forecast and evaluat]
+07.55.55		SendRequest for translation: ["[\"13plateref{tab_everage50_65}   приведены прогн]
+07.55.56		Got response for translation: [13plateref{tab_everage50_65} shows the predicted v]
+07.55.56		SendRequest for translation: ["[\"Большие отличия выборочных и теоретических ква]
+07.55.56		Got response for translation: [Large differences in sample and theoretical quanti]
+07.55.56		SendRequest for translation: ["[\"Среднее относительное ускорение варьируется от]
+07.56.22		Got response for translation: [The average relative acceleration varies from-2813]
+07.56.22		SendRequest for translation: ["[\"\\n  \\n Значения сложности индивидуальных зад]
+07.56.23		Got response for translation: [
+ 
+ The complexity values of individual traveling ]
+07.56.23		SendRequest for translation: ["[\"\\n  \\n Комбинированным алгоритмом стоит реша]
+07.56.24		Got response for translation: [
+ 
+ The combined algorithm should solve problems w]
+07.56.24		SendRequest for translation: ["[\" М.: Мир, 1981\",\"% 368 с\",\"\\n  \\n 13plat]
+07.56.24		Got response for translation: [ М.: Мир, 1981
+% 368 с
+
+  
+ 13platebibitem{KV} 
+ {]
+07.56.24		written text to file [../../../../translation.tex]
+07.56.33		written text to file [../../../translation.tex]

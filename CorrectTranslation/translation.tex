@@ -1,0 +1,763 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+ %%  Sample document for preparing papers to  "Avtomatika i Telemekhanika" 
+ %%  charset=windows-1251 
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+  
+  
+  
+ \documentclass[12pt]{article} 
+ \usepackage{graphicx} 
+ \usepackage{latexsym,wrapfig,epsfig,float,subfigure}% 
+ \begin{document}  %%%!!! 
+ \newcommand{\N}{{\textnumero}} 
+ %\year{2019} 
+ %\title{КОМБИНИРОВАННЫЙ EXACT ALGORITHM FOR THE ASYMMETRIC TRAVELING SALESMAN PROBLEM: CONSTRUCTION AND STATISTICAL STUDY OF TIME EFFICIENCY} 
+ 
+ \thanks{Исследование was carried out at the expense of a grant from the Russian Science Foundation (project {\textnumero} 17-19-01665).} 
+ 
+ %\authors{Г.Н.~ЖУКОВА, cand.~phys. - mat.~sciences (gzhukova@hse.ru)\\ 
+ %(National Research University "Higher School of Economics"), \\ 
+ %M. V. ~ ULYANOV, Dr. ~ tech.~sciences (muljanov@mail.ru)\\ 
+ %(Institute of Management Problems of the Russian Academy of Sciences named after
+ V. A
+ Trapeznikov, \\VMK MSU named after
+ Lomonosov), \\ 
+ %M. I. ~ FOMICHEV (michan94@yandex.ru\\ 
+ %(National Research University "Higher School of Economics")} 
+ 
+ \maketitle 
+ 
+ \begin{abstract} 
+ Results of a comparative statistical analysis of the time for solving the asymmetric traveling salesman problem (NTSP) by the branch and bound method (without precomputing the tour) and the combined method
+ The combined method consists of the approximate Lin-Kernighan-Helsgaun algorithm used to calculate the initial tour, and the branch and bound method
+ It is shown that the use of an approximate solution found using the Lin-Kernighan-Helsgaun algorithm can significantly reduce the search time for an exact solution to the traveling salesman problem by the branch and boundary method for problems from a certain class
+A forecast of the search time for an exact solution by the branch and boundary method and the combined algorithm
+A computational experiment has shown that the proportion of problems that were solved faster by the combined algorithm than by the branch and boundary method increases with the problem dimension
+
+ \end{abstract} 
+ {\it Keywords:} traveling salesman problem, branch and bound method, probability distribution approximation, probability distribution quantile, probability time prediction
+ 
+ 
+ \section{Introduction} 
+
+ the traveling salesman Problem is to find a Hamiltonian cycle with the minimum sum of weights of edges in a complete (oriented for asymmetric tasks) graph
+Already at relatively small (of the order of tens) order of the matrix describing the task to implement the brute force all possible Hamiltonian cycles it takes too much time, so there have been many attempts to improve the enumeration
+One of the most known and widely used algorithms optimized brute force is a method of branches and boundaries (eng
+Branch and Bound Method abbreviated $B\&B$) [1--8]
+
+ %\cite{LMSK},\cite{LD},\cite{GH},\cite{KV},\cite{Matai},\cite{Slom},\cite{Koles},\cite{UlyanovAlg}
+ 
+ 
+ In the study we used the classical implementation of the method of branches and borders \cite{LMSK}, which implies the following features: 
+ \begin{itemize} 
+ \item arc branching $(k, l)$ is chosen so as to obtain the most largest lower bound of the subset of the set of feasible solutions that do not contain the arc $(k, l)$; 
+ \item given a matrix of values stored in the root of the tree, the nodes of the search tree of the matrix is not stored, the matrix values is truncated, if necessary, for each node of the decision tree; 
+ \item to store the leaves of the search tree to an ordered list 
+ \item the procedure for removal of the tops of the search decision tree is performed every time when finding a new candidate for the optimal solution
+
+ \end{itemize} 
+ 
+ 
+ Method of branches and boundaries tried to improve, for example in \cite{Sergeev2013}, including through the use of as the start of the tour Hamiltonian cycle found by others (e.g., greedy) algorithm [10--14]. 
+ %\cite{Oliver},\cite{Cotta},\cite{Goldberg},\cite{Toriello},\cite{Corn}
+ 
+ This method allows us to exclude from consideration the vertices of the decision tree with a lower estimate that is not less than the sum of the weights of the arcs of this tour
+However, it is shown by \cite{MF} that only in the case of a record that is very close to the optimal tour (i.e.,
+with a cost exceeding by no more than 5\% the cost of the optimal solution), a significant number of vertices can be excluded
+Precomputed tours with a cost significantly greater than the cost of the optimal tour do not speed up the work of the branch and boundary method
+
+ 
+ Previously, \cite{SITO2016} the authors of the article investigated such a characteristic of the individual traveling salesman problem as the complexity of \cite{Knuth}, equal to the number of vertices of the search tree constructed when solving the problem by the method of branches and boundaries
+
+ 
+ Since the number of vertices of the decision tree depends on whether the pre-calculated tour was used and on the quality of this tour, we will further call the complexity of the individual traveling salesman problem the number of vertices constructed by the classical method of branches and boundaries (without precomputations)
+The number of vertices generated by the branch and boundary method using a precomputed tour will be called the complexity of the individual problem using a precomputed tour obtained by some heuristic algorithm
+ 
+ 
+ Note that the complexity of the individual traveling salesman problem using a precomputed tour will not be significantly less than the complexity of the individual traveling salesman problem (without precomputations) if the cost of the precomputed tour is significantly greater than the cost of the optimal tour
+
+ 
+ \section{Statement of the problem} 
+ the Object of study in this article is the asymmetric traveling salesman problem
+Resolved individually asymmetric travelling salesman problem with a matrix of values, the elements of which --- pseudo-random number with uniform distribution
+
+ 
+ the subject of the study --- time efficiency of the software implementation of the combined accurate algorithm, which includes a heuristic algorithm to find the start of the tour and the method of branch and bound to obtain the exact solutions of the traveling salesman problem
+
+ 
+ the Authors set themselves in the context of this article the following problems: 
+ \begin{enumerate} 
+ \item Selection heuristic algorithm to obtain an initial pseudoptilinus tour, providing starting with some dimension of the asymmetric traveling salesman problem reductions in the average time value of obtaining an exact solution
+combined algorithm (more $E+B\&B$) the time of obtaining an exact solution is the amount of time the heuristic $E$ and the method of branches and borders (hereinafter $B\&B$ ) with predecisional round, ie
+we need to find a heuristic algorithm $E$ such dimensionality of the problem $n_0$, which is 
+	\begin{align} 
+	\forall n>n_0\quad\overline{t}_{E+B\&B}(n)<\overline{t}_{B\&B}(n).\label{(1)} 
+ 	\end{align} 
+ \item statistical study experimentally obtained values of time the software implementations of algorithms 
+ $B\&B$ and $E+B\&B$ to compare the performance of algorithms
+Build approximating families of distributions of time of the algorithms $B\&B$ and $E+B\&B$
+Prediction of secondary and quantiles time of the algorithm $E+B\&B$ using linear functions, independent of the dimension ATSP
+
+ \item assessment of the quality of the prediction by comparing the predicted values of the average time of the algorithm $E+B\&B$, and approximating the quantiles of the distribution with the corresponding values of the control sample
+
+ 
+ \item Determination of the characteristic features of individual tasks for which the combined $E+B\&B$ algorithm provides a tangible reduction in the calculation time: 
+ \begin{align} 
+ {t_{E+B\&B}(A)}<{t_{B\&B}(A)}
+\label{(2)} 
+ \end{align} 
+ 	 
+ 
+ \item Investigation of the dependence of the time of solving the traveling salesman problem on the complexity. 
+ \item Formulation of recommendations for using the combined algorithm
+
+ \end {enumerate} 
+  
+ \section {Selecting a heuristic algorithm} 
+  
+ The classical branch-and-bound method does not imply the presence of any round at the time of the initial launch, therefore, at first, the branching procedure is performed repeatedly, the nodes of the search tree are generated, and the vertices are not excluded from consideration
+Depending on the characteristics of the individual problem, the number of vertices in the decision tree can be quite large by the time the first round is found
+The use of a tour found in advance by some approximate method makes it possible to start excluding vertices from consideration earlier; as a result, a smaller number of vertices of the decision tree will be generated, which will reduce the complexity of the problem and the search time for the optimal tour
+
+  
+ С другой стороны, на получение начального тура придется тратить время, так что общее время расчетов будет складываться из времени, затраченного на поиск начального тура, и времени работы метода ветвей и границ с найденным туром (будем называть его далее предвычисленным туром)
+В связи с этим будем искать настолько быстрый алгоритм поиска начального тура, чтобы суммарное время работы алгоритма для нахождения предвычисленного тура и алгоритма метода ветвей и границ с найденным предвычисленным туром было не больше времени работы классического метода ветвей и границ
+
+  
+ Из экспериментального исследования, проведенного одним из авторов статьи  \cite{MF}, следует: 
+ \begin{itemize} 
+ \item если предвычисленный тур является оптимальным, то сложность индивидуальной задачи при  использовании предвычисленного тура меньше  в среднем приблизительно на 35-40\% ; 
+ \item если стоимость  предвычисленного тура на 5\% больше, чем оптимального, то сложность индивидуальной задачи при  использовании предвычисленного тура не будет заметно меньше, чем сложность при решении этой задачи классическим $B\&B$
+
+ \end{itemize} 
+  
+  
+  
+  
+ Обозначим через $\eps$ точность предвычисленного тура: 
+ \begin{align} 
+ \eps=\frac{p_{E}(A)-p_{B\&B}(A)}{p_{B\&B}(A)},\label{cost_ratio} 
+ \end{align}  
+ где $p_{B\&B}(A)$   и $p_{E}(A)$  --- соответственно стоимость оптимального тура задачи коммивояжера с матрицей стоимостей $A$ и стоимость тура, найденного приближенным алгоритмом ${E}$
+
+ Пусть $\gamma$ --- отношение сложности при использовании предвычисленного тура к сложности индивидуальной задачи коммивояжера: 
+ \begin{align} 
+ \gamma=\frac{c_{B\&B}(A)-c_{E+B\&B}(A)}{c_{B\&B}(A)}.\label{complexity_ratio} 
+ \end{align}  
+  
+  
+ %Здесь должен быть рисунок!!! 
+ %\begin{figure}%[h] 
+ %\epsfig{figure=MFgraph45.eps,width=0.7 \textwidth}\label{MFpict1} 
+ %\caption{Зависимость $\gamma$ от $\eps$.} 
+ %\end{figure} 
+  
+ На Рисунке 1 %\ref{MFpict1}  
+ представлена зависимость   $\gamma$  от точности $\eps$ предвычисленного тура  для $n=45$ \cite{MF}, для других размерностей график аналогичный
+
+  
+ Зависимость получена для несимметричных задач коммивояжера с элементами матрицы стоимостей, полученными генератором псевдослучайных чисел с равномерным распределением
+
+  
+ Таким образом, для поиска начального тура для метода ветвей и границ  необходим приближенный алгоритм, быстро находящий решение, очень близкое к оптимальному
+Будем искать подходящий алгоритм в классе эвристических алгоритмов. 
+ 
+ Based on a preliminary analysis of literature sources [15, 18--28] 
+ %\cite{Borodin}\cite{Pant15} \cite{Applegate16}\cite{Colorni17}, \cite{Dorigo18}, \cite{Dorigo19} \cite{Gamboa20}, \cite{Kaplan21}, %\cite{Momke22}, \cite{Cormen23}, \cite{Stutzle24},\cite{MF} 
+ It was decided to use heuristic algorithms that improve the solutions of
+ In 1971
+S
+Lin and B. W
+Kernighan \cite{LK25} proposed an effective heuristic algorithm based on iterative improvement of a randomly obtained tour
+ Later, in 2000
+Keld Helsgaun introduced in \cite{Helsgaun26} a modified implementation of the Lin-Kernighan algorithm
+ 
+ The Lin-Kernighan-Helsgaun algorithm (hereinafter LKH) finds a valid solution, then builds two sets of arcs such that if all the arcs of the first set are removed from the found round and replaced with arcs from the second set, the result will be a round with a smaller sum of the weights of the arcs
+The process the replacement of arcs is repeated until it is impossible to form two suitable sets of arcs
+All restrictions on the sets of arcs and the features of their choice are described in detail in \cite{Helsgaun26}
+
+ 
+ This algorithm often finds not only suboptimal, but also optimal solutions in an acceptable time, even for problems of large dimension (of the order of $10^4$)
+It is due to this property that the LKH algorithm was chosen as a heuristic algorithm for obtaining a precomputed tour
+ 
+ In the proposed study, the LKH algorithm is run only once, similar to \cite{BI2018}
+
+ 
+ 
+ \section{A statistical study of time working $B\&B$ and $E+B\&B$} 
+
+ comparing the time of work $B\&B$ without prediciting tour and the combined algorithm will first conduct on the basis of sample means (table
+\ref{tab_everage_time1}), then compare the sample quantiles of the distributions of the time of these algorithms and the share of tasks in the sample and its parts that have been solved by the combined algorithm is faster than $B\&B$
+ 
+ 
+ Computational experiment was conducted on a desktop with the following characteristics: 
+ \begin{itemize} 
+ \item Intel i7 8700K 4700 MHz; 
+ \item RAM Corsair Vengeance LPX DDR4 3466MHz CMK32GX4M2B3466C16R 32GB; 
+ \item motherboard ASRock Fatal1ty Z370 Gaming K6; 
+ \item operating system Arch with kernel version 4.14.13-1-ARCH
+
+ \end{itemize} 
+ 
+ To minimize noise operating system, background processes that are not needed for the study has been disconnected, and there is no graphical user interface and the operating system was carried out through a command-line
+ 
+ Algorithms are implemented in C++ and compiled into an executable using gcc 7.2.1 20171224
+
+ 
+ On a given hardware configuration was carried out computational experiment the objectives of a salesman matrix values with the order of 30 to 50
+For each value of the order of the matrix of values were considered $10^4$ task of a salesman, every problem was solved by the method of branches and borders and the combined method
+All sample characteristics were calculated when the sample size $10^4$
+ 
+ 
+ 
+ As can be seen from Table
+\ref{tab_everage_time1}, average time work combined algorithm more for up to 40 dimensions, and dimensions for more than 45 combined algorithm is slightly faster on average
+furthermore, the standard deviation of time of operation of the combined algorithm less than $B\&B$, and with increasing dimension of the task to 50 standard deviation (SD) operation time of the combined algorithm becomes less almost 3 times compared to $B\&B$. 
+ 
+ You can also notice that the maximum running time of the combined algorithm grows slower with increasing dimension, 
+ than in the case of $B\&B$, so that for $n=45$ the maximum running time of the combined algorithm is $27\%$ less, 
+ and for $n=50$ - - - $70\%$ less
+
+ 
+ 
+ \begin{table}[H] 
+ \caption{Minimum, maximum, and average running time of $B\&B$ and $E+B\&B$, ms.} 
+ \begin{tabular}{|r|r|r|r|r|r|r|r|r| r/} 
+ \hline 
+ 	&$\min$ &	$\min$ 	&$\max$ 	&	$\max$ &average &		 average &SKO &	\TO \\ 
+ %$n	$	&$B\&B$	&$E+B\&B$		&$B\&B$	&$E+B\&B$	&$B\&B$	&$E+B\&B$	&$B\&B$	&$E+B\&B$	\\ 
+ $n	$&$B\&B$&comb.&$B\&B$&comb.&$B\&B$&comb.&$B\&B$&combs.\\ 
+ \hline 
+ 30&227&2764&588975&589430&24070&31457&30747&30655\\ 
+ \hline 
+ 35&324&5287&2010030&1967021&78111&87304&108205&106739\\ 
+ \hline 
+ 40&445&5723&15011713&12654423&263125&270031&467713&43980\label{(*)1}\ 
+ \hline 
+ 45&2144&8307&68240602&49713361&875652&848704&210841&170893\section{\ 
+ \hline 
+ 50&4013&10533&1464202466&441979575&3046440&2634915&21328841&7631699\\ 
+ \hline 
+ \end{tabular} 
+ \label{tab_everage_time1} 
+ \end{table} 
+ table
+\ref{tab_everage_time1} $n$ --- the number of vertices of the graph in the traveling salesman problem (is the order of the costs matrix), the time here and later in the article measured in milliseconds
+
+ 
+ To build the forecast quantiles and the mean time of the algorithms construct the approximating family of distributions for the natural logarithm of time of algorithms
+To determine the type of distribution we use the quantile skewness and kurtosis [32,33] 
+ %\cite{Moorskurt}, \cite{MoorsSF}, 
+ the same way as was done for the complexity of individual tasks of a salesman in [16,34]
+%\cite{SITO2016} and \cite{A_T2018}
+ 
+ 
+ For samples of work time $B\&B$ at $10000$ tasks for each dimension were obtained the values of the quantile skewness from $-0,037$ to $0,018$ and quantile kurtosis from $1,206$ to $1,262$
+ 
+ For the composite quantile algorithm, respectively, have the coefficient of skewness from $-0,022$ up to $0.079$ and quantile kurtosis from $1,194$ to $1,297$
+For the normal distribution, regardless of the values of the parameters of the quantile skewness is equal to 0, and quantile kurtosis --- about $1,23$, so we continue to use the normal distribution as the approximating distribution of the natural logarithm operation time $B\&B$ and the combined algorithm
+ 
+ 
+ the Parameters of the approximating normal distribution we choose, building a linear dependence of the sample means and sample standard deviations from the dimension of task
+For a range of dimensions from 30 to 50 in increments of 1 was obtained by sampling 10,000 matrices of values for each dimension
+Distribution of matrix elements was chosen uniform continuous on the interval $[0,1]$
+Every problem was solved $B\&B$, then the same tasks in the same order was solved by the combined algorithm
+in solving the travelling salesman problem a combined algorithm approximate the LKH algorithm was run once, then the resulting pseudoprimality tour was used as predecisional tour $B\&B$
+ 
+ 
+ On the obtained samples was calculated values for the sample mean of the natural logarithm operation time of both algorithms and standard deviations
+the method of least squares was calculated shift coefficients and the scale of the linear function that best approximates the dependence of the sample means and standard deviations from the dimension of the problem (for a combined algorithm and $B\&B$). The obtained linear functions were used to approximate and extrapolate the dependence on the dimension of the problem of the parameters of the normal distribution approximating the distribution of the natural logarithm of the running time of each algorithm
+
+ 
+ Denote $\mu_{B\&B}(n)$, $\sigma_{B\&B}(n)$, $\mu_{E+B\&B}(n)$, $\sigma_{E+B\&B}(n)$, the found linear dependences of the sample mean and root-mean-square deviations of the running time of $B\&B$ and the combined algorithm, respectively: 
+ 
+ \begin{align} 
+ \mu_{B\&B}(n)=0,217n+3,06,							\label{(*)1}\\ 
+ \sigma_{B\&B}(n)=0,015n+0,59,\label{(*)2}\\ 
+ \mu_{E+B\&B}(n)=0,219n+2,96,\label{(*)3}\\ 
+ \sigma_{E+B\&B}(n)=0,0135 n+0,65.13 platelabel{(*)4} 
+ \end{align} 
+ deviation of the sample means (calculated for random samples of size 10000 
+ for each dimension of the task from 30 to 50) of the corresponding values found by the formulas (\ref{(*)1})--(\ref{(*)4}) is less than the plate 0,513% for standard deviations --- less than \section{%
+
+ 
+ Next to the dimensions of the task from 30 to 50 was calculated quantiles of normal distributions with parameters found by the formulas (\ref{(*)1})--(\ref{(*)4})
+the Quality of approximation of the natural logarithm of time of each algorithm normal distribution with parameters (\ref{(*)1})--(\ref{(*)4}) estimate by comparing the computed quantiles of the normal distribution with the sample quantiles of the natural logarithms-time algorithms
+Use data about $B\&B$ and combined algorithm for solving a single set of 10,000 task of traveling to each dimension of 30 to 50
+Sample quantiles of the natural logarithm operation time $B\&B$ level 25, 50 and 75\% different from the quantiles of the normal distribution with parameters computed from the (\ref{(*)1})--(\ref{(*)4}), 0.1-plate 0,513%
+The difference between the sample quantiles and the corresponding quantiles of the normal distribution is a monotonically decreases with increasing dimension of the task to the quantiles of level from 10 to 90\%
+ 
+ 
+ Due to the fact that the logarithm function is monotonically increasing (we use the natural logarithm), quantiles time work $B\&B$ (as well as the combined algorithm) can be found, potenciya corresponding quantiles of the natural logarithm of time
+Sample quantiles time work $B\&B$ level 25, 50\% different from the Exhibitor quantiles of the normal distribution (or, equivalently, the quantiles of the log-normal distribution) with parameters computed from the (\ref{(*)1})--(\ref{(*)4}) less than 7\% for the quantiles of level 75\%, the difference is more 4\%
+With the increasing dimension of the task to 50 differences of quantiles time levels 5-99\% of the approximating values are reduced to 1-\section{%
+
+ 
+ Sample quantiles time work combined algorithm for small values differ from the values approximating stronger than $B\&B$, especially for small (up to 40) dimensions task
+So, the difference between the quantiles of level 5\% decrease from 66 to 7\% with increasing the dimension of the problem from 30 to 50
+the Difference between the quantiles levels and 75\ 50% of the approximating values reduced from 40 to 25 \label{(*)1}%
+At the same time quantiles level 90\% or more differ to a lesser extent from approximating values, mainly on 1-5\% for even dimensions from 35
+
+ 
+ Different behavior quantiles lower order time work $B\&B$ and the combined algorithm due to the influence of time spent looking LKH algorithm for the computation of the tour
+This time is not proportional to the elapsed time $B\&B$ on a solution to this problem, it is small compared with the average time of solving the problem of the same dimension, but is close to the minimum observed time solution of the problem may differ slightly.  
+  
+ \section{Making a forecast and evaluating its quality} 
+ 
+ We use the approximation of the natural logarithm of the time of solving the traveling salesman problem with a normal distribution to make a forecast of the average and standard deviation of the natural logarithm of the $B\&B$ operation time and the algorithm as functions of dimension
+
+ 
+ Next, we will use the relationship between the normal and lognormal distributions: if the random variable $X$ has a lognormal distribution, then the random variable $\ln X$ is distributed normally with the same parameters $\mu$ and $\sigma$
+ 
+ For convenience, we give the density formulas of the corresponding normal (\ref{norm}) and lognormal (\ref{norm}) distributions of \cite{Kramer}: 
+ \begin{align} 
+ f(x)=\frac1{\sigma\sqrt{\section{pi}}e^\frac{-(x-\mu)^2}{\section{sigma^2},\label{norm}\\ 
+ f(x)=\frac1{x\sigma\sqrt{\section{pi}}e^\frac{-(\ln x-\mu)^2}{\section{sigma^2}.\label{lognorm} 
+ \end{align} 
+ 
+ Prediction of quantiles of the problem solution time the $B\&B$ traveling salesman and the combined algorithm can be obtained using the formulas 
+ \begin{align} 
+ q_p=e^{q_p^{\mbox{norm}}}, \label{q_p1} 
+ \end{align} 
+ where $q_p^{\mbox{norm}}$ - - - quantiles of the normal distribution with parameters calculated from (\ref{(*)1})--(\ref{(*)4})
+
+ 
+ 
+ Let's compare the predicted (based on the results of statistical processing of samples of the volume of 10000 problems of dimension 30 to 50) values of the quantiles of the working time of $B\&B$ and $E+B\&B$ with the corresponding values of the control sample of the volume of 1000 dimensions 55, 60 and 65
+ 
+ In Table
+\ref{omega_q_p} the relative differences (in \%) of the predicted and observed quantiles of the level 25,50,70 and 90, calculated by the formula 
+ \begin{align} 
+ \omega_p=100\frac{q_p^{\mbox{выборочн}}-q_p^{\mbox{норм}}}{q_p^{\mbox{выборочн}}}.\label{omega} 
+ \end{align} 
+ 
+ 
+ \begin{table}[H] 
+ \caption{ Comparison of predicted quantiles with sample quantiles.} 
+ \begin{tabular}{|r|r|r|r|r|r|r|r| r/} 
+ \hline 
+ 	&$\omega_{25}$ &	$\omega_{25}$&$\omega_{50}$ 	&	$\omega_{50}$ &$\omega_{70}$ &		$\omega_{70}$ &$\omega_{90}$ &		$\omega_{90}$ \\ 
+ $n	$	&$B\&B$	&$E+B\&B$		&$B\&B$	&$E+B\&B$	&$B\&B$	&$E+B\&B$	&$B\&B$	&$E+B\&B$	\\ 
+ \hline 
+ 55&-4&-2&-8&-6&-9&-8&-8&-9\\ 
+ \hline 
+ 60&-2&-4&-12&-14&-11&-17&0&-13\\ 
+ \hline 
+ 65&-22&-28&-21&-26&-11&-27&14&16\\ 
+ \hline 
+ \end{tabular} 
+ \label{omega_q_p} 
+ \end{table} 
+ 
+ 
+ To predict the average value of the natural logarithm of the running time of the algorithms, you can use the dependencies (\ref{(*)1}) and (\ref{(*)3}), used as an approximation of the $\mu$ parameter of the normal a distribution that approximates the distribution of the natural logarithm of the running time of the algorithms
+The forecast of the average running time of the algorithms can be obtained by using formulas that connect the mathematical expectation and variance of the lognormally distributed random variable $X$ with the parameters $\mu$ and $\sigma$ of the corresponding normal random variable: 
+ \begin{align} 
+ EX=e^{\mu+\sigma^2/2}, \label{EXlognorm}\\ 
+ DX=(e^{\sigma^2}-1)e^{\section{mu+\sigma^2}, \label{DXlognorm}\\ 
+ \sqrt{DX}=EX\sqrt{e^{\sigma^2}-1}.\label{sXlognorm} 
+ \end{align} 
+ 
+ To control the quality of the constructed forecast of the average running time of the algorithms and the standard deviation, we use control samples of the volume of 1000 problems of dimension 55, 60 and 65
+In the Table. \ref{tab_everage50_65} shows the predicted values of the average of the natural logarithm of time (in the second column) and standard deviation (in the fifth column) for both algorithms, as well as the predicted and observed mean time and standard deviation
+the third and sixth columns of the table the mean values and standard deviations of samples in the fourth and seventh columns --- relative deviation of the sample from the predicted values calculated by the formulas: 
+ \begin{align*} 
+ \omega = \frac{Z^*-\bar Z}{Z^*}\cdot 100, 
+ \end{align*} 
+ where $Z^*$ --- the estimated value of $Z$ and $\bar Z$ --- sample value $Z$
+In the fourth column shows the relative deviations of the sample values from those projected to average in the seventh for the standard deviation
+
+ 
+ Under a double feature in this table presents the results of the same calculations performed on the same samples, but each sample was removed, the maximum value of time
+As you can see, the average time is not a reliable characteristic of time efficiency of the algorithm, because it very much is changing under the influence of a single task, the solution of which will take much more time than average on the rest
+ 
+ 
+ on the one hand, the larger the sample size, the more accurately the mathematical expectation of the observed random variable can be evaluated selective medium
+on the other --- the larger the sample the greater the chance to meet her a task that will be resolved for a very long time and will seriously affect the value of the sample mean
+
+ 
+ summarizing the above, we note that the more attractive characteristics of time efficiency seem quantiles of the distribution of time of an algorithm, they are much less vulnerable to individual outliers
+
+ \begin{table}[H] 
+ \caption{ The average relative acceleration and the percentage of accelerated tasks.} 
+ \begin{tabular}{c} 
+ \begin{tabular}{|p{0.5 cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{1.5 cm}|} 
+ \hline 
+ %dimension&mean forecast&mean sample&relative deviation, \%& coex forecast&SKO sample&relative deviation, \%\\ 
+ $n$ & mean, forecast&mean, sample&rel
+ off, \%& sko, forecast&sko, sample&rel
+ off, \%\\ 
+ %$n$&mean.& environments.&rel
+ off, \%& SKO&COEX &rel. Large differences in sample and theoretical quantiles at dimension 65 compared to dimensions 55 and 60 may mean that the computing complex used is working at the limit of its capabilities
+ In this case, a more productive computing system should be used to solve a large number of problems of a larger dimension
+
+ 
+ \section{The definition of the characteristic features of individual tasks} 
+
+ Analyzing the relative acceleration solutions for the traveling salesman problem, is calculated by the formula 
+ \begin{align} 
+ \nu=100\frac{t_{B\&B}-t_{E+B\&B}}{t_{B\&B}},\label{t_BB_t_BBLKH} 
+ \end{align} 
+ you may notice that some tasks are combined algorithm is slower than $B\&B$, but mostly the problem is, solve both fast algorithms
+In this case, the acceleration of the calculations due to the presence of round slightly, while the approximation algorithm spends on the search tour, though small time, but comparable to the time of work $B\&B$, so that the amount of working time approximate algorithm and $B\&B$ with predecisional tour turns out to be more work time without $B\&B$ stored pre
+on the other hand, for tasks that require a lot of time on finding the exact solution, the acceleration due to the use of prediciting tour can reach 50\%, ie
+a combined algorithm works 2 times faster on some tasks
+
+ 
+ For a more detailed analysis of random samples of size 10000 for each dimension of the task of kommivoyazhera from 30 to 50 were extracted a subset of problems for which the solution time $B\&B$ was more than 
+ \begin{align} 
+ e^{\mu+k\sigma}, \quad k=0,1,2,3,13 platelabel{e_mu_s} 
+ \end{align} 
+ where $\mu$ and $\sigma$ --- parameters of the normal distribution, approximating the distribution of the logarithm of time the solution of tasks of a salesman
+These settings are a little different from $B\&B$ and the combined algorithm
+ 
+ 
+ Thus, for each dimension of the traveling salesman problem has 4 subsets of tasks from the sample volume was 10000
+For each such subset was calculated relative acceleration of each task combined algorithm according to the formula (\ref{t_BB_t_BBLKH}), and also higher in this subset of acceleration and share tasks for which the acceleration was greater than 0
+the results of the analysis are given in Table
+\ref{tab_better_time}
+
+ \begin{table}[H] 
+ \caption{ Average relative acceleration and percentage of accelerated tasks, $e^{\mu+k\sigma}$.} 
+ \begin{tabular}{|r|r|r|r|r|r|r|r|r|} 
+ \hline 
+ %&$e^{\mu}$, average&$e^{\mu}$, &$e^{\mu+\sigma}$, average&$e^{\mu+\sigma}$, &$e^{\mu+\section{sigma}$, average&$e^{\mu+\section{sigma}$, %&$e^{\mu+3\sigma}$, average&$e^{\mu+3\sigma}$, \\ 
+ %$n	$	&acceleration, \%	&share	&acceleration, \%	&share	&acceleration, \%	&share	&acceleration, \%	&share	\\ 
+ &$e^{\mu}$, medium.&$e^{\mu}$, &$e^{\mu+\sigma}$, wednesday.&$e^{\mu+\sigma}$, &$e^{\mu+\section{sigma}$, wednesday.&$e^{\mu+\section{sigma}$, &$e^{\mu+3\sigma}$, medium.&$e^{\mu+3\sigma}$, \\ 
+ $n	$	 & usk., \%	 & share	&usk., \%	&share	&usk., \%	&share	&usk., \%	&share	 & usk., \ % 	 & share 	\\ 
+ \hline 
+ 30&-28,24&6,44&-10,16&11,99&-3,53&17,8&0,87&36,36\\ 
+ \hline 
+ 35&-11,28&7,67&-4,11&12,83&-0,38&42,71&2,39&100,0\\ 
+ \hline 
+ 40&-3,58&13,62&-0,22&40,33&2,69&94,01&9,17&100,0\\ 
+ \hline 
+ 45&0,17&46,7&2,59&94,14&7,67&100,0&21,28&100,0\\ 
+ \hline 
+ 50&2,17&75,49&5,89&98,57&15,09&100,0&33,37&100,0\\ 
+ \hline 
+ \end{tabular} 
+ \label{tab_better_time} 
+ \end{table} 
+ 
+ As can be seen from the table, the proportion of tasks solved faster by the combined algorithm increases with the increase in the $B\&B$ runtime. The average relative acceleration varies from-28\% to 33\%
+Despite the comparative smallness of the average relative acceleration, it significantly affects the value of the average calculation time in a sample of 10,000 problems
+So, the acceleration of 0.213 plate% of the longest-solved problems of dimension 50 by an average of 33\% in combination with a significantly lower acceleration of the remaining problems leads to a decrease in the average solution time for the entire sample by almost \label{(*)1}% compared to $B\&B$ without precalculations
+
+ 
+ A similar calculation was performed based on the quantiles of the lognormal distribution with parameters corresponding to the parameters of the normal distribution approximating the logarithm of the running time $B\&B$
+
+ For a fixed dimension of the traveling salesman problems, the parameters $\mu$ and $\sigma$ of the lognormal distribution of the running time of each algorithm correspond to the parameters $\mu$ and $\sigma$ of the normal distribution approximating the natural logarithm of the running time
+ 
+ 
+ From samples of volume 10000 for each dimension for traveling salesman problems from 30 to 50, subsets of problems were extracted for which the solution time of $B\&B$ was greater than the quantile of the level $p=50,60,70$ and 80 of the lognormal distribution with parameters calculated by the formulas 
+ (\ref{(*)1}) and (\ref{(*)2})
+
+ For each dimension of the traveling salesman problem, 4 subsets of problems were again obtained from a sample of 10,000
+The average relative acceleration and the proportion of problems for which the acceleration was greater than 0 are given in Table
+\ref{tab_better_time_q}
+
+ 
+ Note that the average relative acceleration for problems of dimension no more than 40 is negative, which means that a large contribution to this value is made by problems that are solved $B\&B$ faster than the combined algorithm
+For large dimensions, more time is spent on solving the traveling salesman problem and the use of the combined algorithm leads more often to a reduction in the time to find the optimal solution, in addition, the relative reduction value for the problems solved for the longest time becomes greater
+
+ 
+ \begin{table}[H] 
+ \caption{ The average relative acceleration and the percentage of accelerated tasks, $q_{p}$.} 
+ \begin{tabular}{|r|r|r|r|r|r|r|r|r|} 
+ \hline 
+ %&$q_{50}$, average&$q_{50}$, &$q_{60}$, average&$q_{60}$, &$q_{70}$, average&$q_{70}$, &$q_{80}$, average&$q_{80}$, \\ 
+ %$n	$	& acceleration, \%	&share	&acceleration, \%	&share	&acceleration, \%	&share	&acceleration, \%	&share	\\ 
+ &$q_{50}$, medium.&$q_{50}$, &$q_{60}$, Wednesday.&$q_{60}$, &$q_{70}$, Wednesday.&$q_{70}$, &$q_{80}$, Wednesday.&$q_{80}$, \\ 
+ $n	$	 & usk., \%	 & share	&usk., \%	&share	&usk., \%	&share	&usk., \%	&share	\\ 
+ \hline 
+ 30&-12,36&10,63&-28,24&6,44&-22,51&7,64&-17,51&8,9\label{(*)1}\ 
+ \hline 
+ 35&-4,96&11,53&-11,28&7,67&-9,06&8,23&-7,06&9,3\section{\ 
+ \hline 
+ 40&-0,72&31,75&-3,58&13,62&-2,54&16,7&-1,6&21,87\\ 
+ \hline 
+ 45&2,16&89,43&0,17&46,7&0,73&57,76&1,34&72,98\\ 
+ \hline 
+ 50&5,01&97,79&2,17&75,49&2,81&86,86&3,67&94,75\\ 
+ \hline 
+ \end{tabular} 
+ \label{tab_better_time_q} 
+ \end{table} 
+ 
+ \section{Dependence of the efficiency of the combined algorithm on the complexity of individual ATSP problems} 
+ 
+ %The complexity of the traveling salesman problem is a numerical characteristic equal to the number of vertices of the search tree constructed when solving the problem %by the $B\&B$ algorithm
+ 
+ 
+ When calculating the complexity of an individual problem, the vertices of the decision tree with a lower estimate less than the cost of the already found tour are taken into account
+In the case of the classical $B\&B$ implementation (without precalculations), until a certain tour is found, all generated vertices of the decision tree are taken into account, and after the tour is obtained, only those with a lower estimate lower than the cost of this tour. 
+ 
+ The complexity values of individual traveling salesman problems of fixed dimension ( from 20 to 50) differ by orders of magnitude, which seriously complicates the study of the time efficiency of algorithms
+So, in a sample of 100,000 problems of dimension 40, problems with difficulties of 77 and 598,893 were encountered, and the sample average complexity was 8145
+
+ 
+ Since problems with a small complexity value are solved by the $B\&B$ software implementation quickly enough, the use of a precomputed round will not lead to a noticeable reduction in the work time Moreover, the sum of the time spent on finding a record even by such a fast algorithm as the LKH method, and the time spent on $B\&B$ with the resulting precomputed round will be greater than the time spent on $B\&B$ without the precomputed round
+
+ 
+ On the other hand, problems with high complexity require a lot of time to get a solution using $B\&B$, and in this case, a sufficiently fast approximate solution of LKH leads to such a reduction in the time of $B\&B$ that the sum of the time of getting the LKH round and searching the exact solution of $B\&B$ will already be less than the running time of $B\&B$ without a precomputed round
+
+
+ In this regard, each sample of 10,000 matrices of fixed dimension (from 35 to 45) was ordered in descending order of complexity, then the problem number $N(C_{{\rm{max}}})$  such that for all problems with smaller numbers, the running time of the combined algorithm is less than that of the classic $B\&B$
+ $N(C_{{\rm{max}}})$ increases almost monotonically from 11 to 292 with the growth of the problem dimension from 35 to 45
+Also, for each dimension from 35 to 45, the complexity values $C_{\mbox{crit.}}$, such that all problems of greater complexity from the sample are solved by the combined algorithm faster than the classic $B\&B$
+ $C_{\mbox{crit.}}$ grows from 40000 to 100000 with the growth of the problem dimension from 35 to 45
+
+ 
+ In addition, these same samples, containing 10,000 matrices for each dimension from 35 to 45, were ordered in descending order of the working time of the classic $B\&B$
+The number of problems with the longest solution time by the $B\&B$ algorithm, which were solved by the combined algorithm faster, increases from 11 to 171
+We denote by $\hat t$ the working time of the classic $B\&B$, such that all problems solved by $B\&B$ in the time, more than $\hat t$, are solved by the combined algorithm faster than the classical $B\&B$
+This time of $\hat t$ increases from 1100000 ms 
+ to 6400000 ms with an increase in the problem dimension from 35 to 45
+
+ 
+ Thus, the application of the combined algorithm reduces the time for solving the traveling salesman problem mainly in the case of problems with a large complexity value
+These problems are solved by the classical $B\&B$ longer than problems with a small complexity value, so the pattern "a more complex problem is solved faster by the combined the" algorithm is stored as "the problem that is solved by the classic $B\&B$ longer will be solved by the combined algorithm faster"
+
+ In contrast, a similar pattern is not observed in the time-ordered LKH sample
+
+ 
+ 
+ \section{ Formulation of recommendations for the use of the combined algorithm} 
+ 
+ Due to the fact that problems of small dimensions (up to 40--45) are solved by the branch and bound method relatively quickly, it is not recommended to use the combined algorithm in such cases
+The reason is that the reduction in the total calculation time due to the use of the precomputed round will be so small that it will be less time required to find the initial round even by such a fast approximate algorithm as LKH
+As a result, the combined algorithm will work longer than the classical branch and bound method
+
+ 
+ In the case of solving problems of dimension greater than 45, it is reasonable to use a combined algorithm to solve a large series of traveling salesman problems, since the average solution time will be slightly less, so that the total calculation time will be reduced. 
+ 
+ The combined algorithm should solve problems with a high complexity value, it is for such problems that the acceleration of calculations due to the use of a precomputed tour is maximum
+ 
+ 
+ 
+ 
+ \section{Conclusion} 
+ 
+ In the article, based on the conducted research, experiments with software implementations of algorithms and a statistical study of the obtained times for solving individual asymmetric traveling salesman problems, it is shown that: 
+ \begin{itemize} 
+ \item algorithm Lin-Kernighan-Helsgaun quickly finds close enough to the optimal solution of the tour, allowing in some cases to significantly reduce the search time exact solutions of the traveling salesman problem by the method of branches and borders; 
+ \item combined method, where the first stage uses a heuristic algorithm for finding prediciting tour, and the second stage applies a software implementation of the method of branches and borders with the resulting round as the start can be built using a heuristic algorithm of Lin-Kernighan-Helsgaun; 
+ \item software implementation of the proposed combined algorithm since the dimension of the problem more than 45 shows the best times of the solutions based on the average than the classical method of branches and borders, despite the fact that the share of tasks that are solved faster, is less than half; 
+ \item the lognormal distribution is a satisfactory approximation of the distribution of times individual solutions for software implementations of the classical method of branches and boundaries and the proposed combined method in the range of dimensions from 30 to 50; 
+ \item the results of the probabilistic quantile forecasting of time based on the family of lognormal distributions agree rather well with experimental data for dimensions 55, 60 and 65, which allows the use of the results obtained for the probabilistic forecasting of time
+
+ \end{itemize} 
+ 
+ the Parameters of the approximating distribution was estimated from samples of the tasks of a salesman (10000 volume for each dimension of the problem from 30 to 50), then the method of least squares was built linear dependence of these parameters from the dimension of the problem
+Comparing the quantiles of the approximating distribution with sample quantiles of the natural logarithm the solution time control random samples of size 1000 task of a salesman dimensions 55, 60 and 65 showed that the satisfactory prediction
+ 
+ 
+ Also the dependence of the effectiveness of the combined algorithm, the complexity of the travelling salesman problem
+this was further statistical study of a sample of those individual tasks that reduce the time of calculation of the combined algorithm is much
+the result shows that it is mainly these individual tasks the difficulty is great for classic method of branches and boundaries
+
+ On the basis of the conducted research, the authors recommend the use of a combined method for individual single-ended tasks of a salesman since the dimensions of 45 and for individual problems of lower dimension for which it is known that the complexity of a large
+
+ Authors can see further development of research in the search for such characteristic functionals of the original matrices of individual tasks, which would determine in polynomial time the membership of the task to the class complex (importance of complexity, ie
+a lot of nodes in the search tree built $B\&B$) 
+
+ 
+ 
+ \begin{thebibliography}{10} 
+ 
+ 
+ 
+ \bibitem{LMSK} 
+ {\it Little J
+D
+C., Murty K
+G., D. W. Sweeney, Karel C.} 
+ An Algorithm for the Traveling Salesman Problem // Oper
+Res
+1963
+№~11
+P.~972--989
+
+ 
+ \bibitem{LD} 
+ {\it Land A. H., Doig, A. G.} An automatic method of solving discrete programming problems // Econometrica
+ 1960
+ V
+28 №3
+P
+497-520
+
+ 
+ \bibitem{GH} 
+ {\it Goodman S., S. Hedetniemi} Introduction to the development and analysis of algorithms.  М.: Мир, 1981
+% 368 с
+
+  
+ \bibitem{KV} 
+ {\it  Korte B.,  Vygen J.} Combinatorial Optimization: Theory and Algorithms, Springer Publishing Company, Inc., 2007
+
+  
+  
+ %подумать! 
+ \bibitem{Matai} 
+ {\it   Matai R., Mittal M.L., Singh S.} Travelling salesman problem: An overview of applications, formulations and solution approaches/Davendra, D
+(ed.) Chapter 1 in Travelling Salesman Problem: Theory and Applications
+Intech Open Access Publisher, Rijeka, 2010
+ P
+1–24
+
+  
+ \bibitem{Slom} 
+ {\it   Slominski L.} Probabilistic analysis of combinatorial algorithms: a bibliography with selected annotations // Computing
+ 1982
+V
+28
+P
+257–267
+
+  
+  
+  
+ \bibitem{Koles} 
+  {\it Колесников А.В., Кириков И.А., Листопад С.В
+и др.} Решение сложных задач коммивояжера методами функциональных гибридных интеллектуальных систем / Под ред
+А.В
+Колесникова
+ М.: ИПИ РАН, 2011
+% 295 с
+
+  
+ \bibitem{UlyanovAlg} 
+ {\it  Ульянов	М.В.} 
+ Ресурсно-эффективные компьютерные алгоритмы
+Разработка и анализ
+М.: ФИЗМАТЛИТ, 2008
+ 
+  
+ \bibitem{Sergeev2013} 
+ {\it Сергеев С.И.} Задача коммивояжера
+Использование нелинейных разрешающих функций// АиТ
+2013 {\textnumero}~6
+С.~101--120
+ 
+  
+ {\it  	Sergeev S.} Nonlinear Resolving Functions for the Travelling Salesman Problem// Autom
+Remote Control
+2013
+V.~74
+{\textnumero}~6
+P.~978--994
+
+  
+ \bibitem{Oliver} 
+ {\it  	Oliver I., Smith D., Holland J.} A Study of Permutation Crossover Operators on the Traveling Salesman Problem
+J
+Grefenstette (Ed.)// Proc
+2 Int
+Conf
+Genet
+Algorithm, Lawrence Erlbaum Associat., Hillsdale N.J., 1987
+P.~224--230
+
+  
+ \bibitem{Cotta} 
+ {\it    Cotta	C., Aldana J., Nebro A., Troya J.} Hybridizing Genetic Algorithms with Branch and Bound Techniques for the Resolution of the TSP/ D
+Pearson, N
+Steele, R
+Albrecht (Eds.), Artificial Neural Nets and Genetic Algorithm 2
+ Wien N
+Y.: Springer-Verlag, 1995
+P.~277--280
+
+  
+ \bibitem{Goldberg} 
+ {\it   	Goldberg D., Lingle R.J.} Alleles, Loci, and the Travelling Salesman Problem  J
+Grefenstette (Ed.)// Proc
+1st Int
+Conf
+Genet
+Algorithms, Lawrence Erlbaum Associat., Hillsdale N
+J., 1985
+P.~154--159
+
+  
+ \bibitem{Toriello} 
+ {\it  	Toriello A.} Optimal Toll Design: a Lower Bound Framework for the Asymmetric Traveling Salesman Problem // Math
+Programm
+2014
+V.~144
+{\textnumero}~1/2
+P.~247--264
+
+  
+ \bibitem{Corn} 
+ { \it   	Cornu$\acute{e}$jols G., Karamanov M., Li Y.}  Early Estimates of the Size of Branch-and-Bound Trees // INFORMS J
+Comput
+2006
+V.~18
+{\textnumero}~1
+P.~86--96
+
+  
+ \bibitem{MF} 
+ {\it    Фомичёв М.И.} Сравнительный анализ метаэвристических алгоритмов решения несимметричной задачи коммивояжера // Системы управления и информационные технологии 2017
+{\textnumero}~3 (69)
+С
+88--92
+
+  
+ \bibitem{SITO2016} 
+ {\it   Головешкин	В.А., Жукова Г.Н., Ульянов М.В., Фомичев М.И.} 
+ Распределение логарифма сложности индивидуальных задач коммивояжера при фиксированной длине входа // Современ
+информ
+технологии и ИТ-образование
+2016
+Т.~12
+{\textnumero}~3
+Ч.~2
+C.~131--137
+
+  
+ \bibitem{Knuth} 
+ {\it   Knuth	D.E.} 
+ Estimating the Efficiency of Backtracking Programs // Math
+Comput
+1975
+V.~29
+P.~121--136
+
+  
+  
+  
+ \bibitem{Pant15} 
+ {\it  Пантелеев А.В.} Метаэвристические алгоритмы поиска глобального экстремума.  М.: Изд–во МАИ-ПРИНТ, 2009.%160 с
+
+  
+ \bibitem{Applegate16} 
+ {\it  Applegate D
+L., Bixby R
+E., Chavatal V
+and Cook W
+J
+K.} The Traveling Salesman Problem, Princeton, N.J: PUP, 2006
+
+  
+ \bibitem{Colorni17} 
+ {\it Colorni A., Dorigo M., Maniezzo V.} Distributed Optimization by Ant Colonies
+Proceedings of the First European Conference on Artificial Life, Paris, France, F.Varela and P.Bourgine (Eds.), Elsevier Publishing, 1991
+P
+134--142
+
+  
+ \bibitem{Dorigo18} 
+ {\it  Dorigo M., Gambardella L
+M.} Ant colony system: a cooperative learning approach to the traveling salesman problem//IEEE Trans
+Evol
+Comput
+Apr
+1997
+V.~1
+{\textnumero}~1
+P
+53--66

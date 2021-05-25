@@ -12,3 +12,15 @@ D:\Dick-lom\Dickлом\CorrectTranslation\Processing\obj\Debug\netstandard2.0\Pr
 D:\Dick-lom\Dickлом\CorrectTranslation\Processing\obj\Debug\netstandard2.0\Processing.csproj.CopyComplete
 D:\Dick-lom\Dickлом\CorrectTranslation\Processing\obj\Debug\netstandard2.0\Processing.dll
 D:\Dick-lom\Dickлом\CorrectTranslation\Processing\obj\Debug\netstandard2.0\Processing.pdb
+D:\Dick-lom\Dickлом\CorrectTranslation\Processing\bin\Debug\netstandard2.0\System.Windows.Forms.dll
+D:\Dick-lom\Dickлом\CorrectTranslation\Processing\bin\Debug\netstandard2.0\System.Security.dll
+D:\Dick-lom\Dickлом\CorrectTranslation\Processing\bin\Debug\netstandard2.0\System.Configuration.dll
+D:\Dick-lom\Dickлом\CorrectTranslation\Processing\bin\Debug\netstandard2.0\Accessibility.dll
+D:\Dick-lom\Dickлом\CorrectTranslation\Processing\bin\Debug\netstandard2.0\System.Deployment.dll
+D:\Dick-lom\Dickлом\CorrectTranslation\Processing\bin\Debug\netstandard2.0\System.Runtime.Serialization.Formatters.Soap.dll
+D:\Dick-lom\Dickлом\CorrectTranslation\Processing\bin\Debug\netstandard2.0\System.Windows.Forms.xml
+D:\Dick-lom\Dickлом\CorrectTranslation\Processing\bin\Debug\netstandard2.0\System.Security.xml
+D:\Dick-lom\Dickлом\CorrectTranslation\Processing\bin\Debug\netstandard2.0\System.Configuration.xml
+D:\Dick-lom\Dickлом\CorrectTranslation\Processing\bin\Debug\netstandard2.0\Accessibility.xml
+D:\Dick-lom\Dickлом\CorrectTranslation\Processing\bin\Debug\netstandard2.0\System.Deployment.xml
+D:\Dick-lom\Dickлом\CorrectTranslation\Processing\bin\Debug\netstandard2.0\System.Runtime.Serialization.Formatters.Soap.xml

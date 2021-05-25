@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 
 namespace Objects
@@ -20,7 +21,11 @@ namespace Objects
             get => string.Join( "\n", texts );
             set
             {
-                var processed = value.Replace( "\\ ", "\\" ).Replace( "\r\n", "\n" ).Replace( @"\\", @"\" ).Replace( "\\\"", "\"" ).Trim( '"' );
+                var processed = value.Replace( "\\ ", "\\" )
+                    .Replace( "\r\n", "\n" )
+                    .Replace( @"\\", @"\" )
+                    .Replace( "\\\"", "\"" )
+                    .Trim( '"' );
                 Retry:
                 try
                 {
@@ -30,8 +35,10 @@ namespace Objects
                     var msg = jre.Message;
                     var posStr = GetStringBetween( msg, "position ", "." );
                     int pos = int.Parse( posStr );
-                    string badChar = new string(processed[ pos ], processed[ pos + 1 ]);
-                    processed = processed.Substring( 0, pos - 1 ) + @"\" + badChar[ 1 ] + processed.Substring( pos + 1 );
+                    string badChar = new string(processed[ pos -1 ], 1 );
+                    if ( string.IsNullOrWhiteSpace( badChar ) )
+                        badChar = "  ";
+                    processed = processed.Substring( 0, pos - 1 ) + @"\ " + badChar[ 0 ] + processed.Substring( pos + 1 );
                     //texts = JsonConvert.DeserializeObject<List<string>>( processed );
                     goto Retry;
                 }
@@ -44,6 +51,8 @@ namespace Objects
         {
             var startIndex = line.IndexOf( firstBound ) + firstBound.Length;
             var length = line.IndexOf( secondBound, startIndex + 1 ) - startIndex;
+            if ( length < 0 )
+                return string.Empty;
             try
             {
                 return line.Substring( startIndex, length );

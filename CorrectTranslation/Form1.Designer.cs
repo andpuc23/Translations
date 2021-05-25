@@ -34,15 +34,15 @@ namespace CorrectTranslation
             this.OrigRTB = new System.Windows.Forms.RichTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.renderBtn = new System.Windows.Forms.Button();
-            this.paragraphsCB = new System.Windows.Forms.ComboBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.SaveBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // translateBtn
             // 
-            this.translateBtn.Location = new System.Drawing.Point(598, 496);
+            this.translateBtn.Location = new System.Drawing.Point(259, 496);
             this.translateBtn.Name = "translateBtn";
-            this.translateBtn.Size = new System.Drawing.Size(257, 112);
+            this.translateBtn.Size = new System.Drawing.Size(260, 112);
             this.translateBtn.TabIndex = 0;
             this.translateBtn.Text = "Перевести";
             this.translateBtn.UseVisualStyleBackColor = true;
@@ -50,9 +50,9 @@ namespace CorrectTranslation
             // 
             // translateRTB
             // 
-            this.translateRTB.Location = new System.Drawing.Point(500, 37);
+            this.translateRTB.Location = new System.Drawing.Point(480, 37);
             this.translateRTB.Name = "translateRTB";
-            this.translateRTB.Size = new System.Drawing.Size(422, 419);
+            this.translateRTB.Size = new System.Drawing.Size(442, 453);
             this.translateRTB.TabIndex = 1;
             this.translateRTB.Text = "";
             // 
@@ -60,7 +60,7 @@ namespace CorrectTranslation
             // 
             this.OrigRTB.Location = new System.Drawing.Point(12, 37);
             this.OrigRTB.Name = "OrigRTB";
-            this.OrigRTB.Size = new System.Drawing.Size(369, 176);
+            this.OrigRTB.Size = new System.Drawing.Size(407, 453);
             this.OrigRTB.TabIndex = 2;
             this.OrigRTB.Text = "Перетащите файл .tex сюда";
             // 
@@ -82,38 +82,40 @@ namespace CorrectTranslation
             this.label2.TabIndex = 4;
             this.label2.Text = "Перевод";
             // 
-            // renderBtn
+            // button1
             // 
-            this.renderBtn.Location = new System.Drawing.Point(368, 496);
-            this.renderBtn.Name = "renderBtn";
-            this.renderBtn.Size = new System.Drawing.Size(224, 112);
-            this.renderBtn.TabIndex = 7;
-            this.renderBtn.Text = "Отрисовать ЛаТеХ\n(в разработке)";
-            this.renderBtn.UseVisualStyleBackColor = true;
-            this.renderBtn.Click += new System.EventHandler(this.renderBtn_Click);
-            //
-            // paragraphsCB
-            //
-            this.paragraphsCB.Location = new System.Drawing.Point( 12, 300 );
-            this.paragraphsCB.Size = new System.Drawing.Size( 350, 112 );
-            this.paragraphsCB.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.paragraphsCB.TabIndex = 7;
-            this.paragraphsCB.Name = "paragraphsCB";
+            this.button1.Location = new System.Drawing.Point(12, 496);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(241, 112);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "Перевести выделенное";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // SaveBtn
+            // 
+            this.SaveBtn.Location = new System.Drawing.Point(690, 496);
+            this.SaveBtn.Name = "SaveBtn";
+            this.SaveBtn.Size = new System.Drawing.Size(232, 112);
+            this.SaveBtn.TabIndex = 9;
+            this.SaveBtn.Text = "Сохранить перевод";
+            this.SaveBtn.UseVisualStyleBackColor = true;
+            this.SaveBtn.Click += new System.EventHandler(this.SaveBtn_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(934, 620);
-            this.Controls.Add(this.renderBtn);
+            this.Controls.Add(this.SaveBtn);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.OrigRTB);
             this.Controls.Add(this.translateRTB);
             this.Controls.Add(this.translateBtn);
-            this.Controls.Add( this.paragraphsCB );
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Translation app";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -126,8 +128,8 @@ namespace CorrectTranslation
         private System.Windows.Forms.RichTextBox OrigRTB;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button renderBtn;
-        private System.Windows.Forms.ComboBox paragraphsCB;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button SaveBtn;
     }
 }
 

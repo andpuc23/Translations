@@ -10,7 +10,6 @@ namespace Processing
 {
     public static class TextProcessing
     {
-
         public static List<string> GetLines( this string text, string title )
         {
             if ( !title.StartsWith( "\\" ) )
@@ -91,7 +90,7 @@ namespace Processing
         public static string ReplaceFormulas( this string text, Config c, out List<Replacement> replacements )
         {
             replacements = new List<Replacement>();
-            Regex reg = new Regex( @"\${1,2}[a-zA-Z\s\\ \(\)\+\-\*\.\,\/\&]+\${1,2}", // $ or $$, then any char, then $ or $$
+            Regex reg = new Regex( @"\${1,2}[a-zA-Z\s\\ \(\)\+\-\*\.\,\/\&]+\${1,2}|\\\[[a-zA-Z\s\\ \(\)\+\-\*\.\,\/\&]+\\\]|\\\([a-zA-Z\s\\ \(\)\+\-\*\.\,\/\&]+\\\)", // $ or $$, then any char, then $ or $$
                 RegexOptions.Singleline | RegexOptions.Compiled );
 
             MatchCollection matches = reg.Matches( text );
@@ -100,22 +99,22 @@ namespace Processing
             {
                 Replacement rep;
                 // пустая формула == новый объект
-                if (  (rep = replacements.Find( x => x.Original == match.Value ) ) is null )
+                if ( ( rep = replacements.Find( x => x.Original == match.Value ) ) is null )
                 {
                     rep = new Replacement()
                     {
                         Original = match.Value,
                         Substitute = ( replacements.Count + 1 ).ToString() + c.FormulaReplacement
                     };
-                    replacements.Add(rep);
+                    replacements.Add( rep );
                 }
                 text = text.Replace( match.Value, rep.Substitute );
             }
-            Writer.Log( "formulas replaced with [" + c.FormulaReplacement+ $"], found {replacements.Count} new values" );
+            Writer.Log( "formulas replaced with [" + c.FormulaReplacement + $"], found {replacements.Count} new values" );
             return text;
         }
 
-        public static string ReplaceSymbols(this string text, Config c, out List<Replacement> replacements )
+        public static string ReplaceSymbols( this string text, Config c, out List<Replacement> replacements )
         {
             replacements = new List<Replacement>();
             Regex reg = new Regex( @"\\[^\\][^\\\s]*", // \someshit 
@@ -157,29 +156,50 @@ namespace Processing
         }
 
         public static string ReplaceQuotes( this string text ) =>
-            text.Replace( "«", "\"" ).Replace( "»", "\"" );
+            text.Replace( "«", "\"" ).Replace( "»", "\"" )
+            .Replace("<<", "\"").Replace(">>", "\"")
+            .Replace("''", "\"").Replace("``", "\"");
 
         public static string SetSpaces( this string text ) =>
-            text.Replace( "\n", " \n " ).Replace("\\", "\\ ");
+            text.Replace( "\n", " \n " ).Replace( "\\", "\\ " );
 
-        public static string ReEncodeToUTF8(this string text )
+        public static string ReEncodeToUTF8( this string text, out bool Ok, string startEncoding = null )
         {
-            var firstPart = text.Substring( 0, 1000 );
-            string encodingString = GetStringBetween( firstPart, "charset=", "\n" );
-            Encoding startEnc = Encoding.GetEncoding( encodingString );
-            var bytes = startEnc.GetBytes( text );
-            var newBytes = Encoding.Convert( startEnc, Encoding.UTF8, bytes );
-            text = Encoding.UTF8.GetString( newBytes );
+            Encoding startEnc;
+            try
+            {
+                if ( startEncoding is null )
+                {
+                    var firstPart = text.Substring( 0, 1000 );
+                    startEncoding = GetStringBetween( firstPart, "charset=", "\n" );
+                }
+                startEnc = Encoding.GetEncoding( startEncoding );
+                var bytes = startEnc.GetBytes( text );
+                var newBytes = Encoding.Convert( startEnc, Encoding.UTF8, bytes );
+                text = Encoding.UTF8.GetString( newBytes );
+                Ok = true;
+                return text;
+            }
+            catch ( Exception e )
+            {
+                Writer.Log( e.Message );
+                Ok = false;
+                return text;
+            }
+        }
+
+        public static string PreprocessText( this string text, out bool encodingOk )
+        {
+            return text.ReEncodeToUTF8(out encodingOk).ReplaceQuotes().SetSpaces();
+        }
+
+        public static string PostprocessText(this string text, List<Replacement> formulas, List<Replacement> chars )
+        {
+            text = text.SubstituteReplacements( formulas ).SubstituteReplacements( chars ).Replace( "\\ ", "\\" );
             return text;
         }
 
-
-        public static string PreprocessText(this string text )
-        {
-            return text.ReEncodeToUTF8().ReplaceQuotes().SetSpaces();
-        }
-
-        public static string SubstituteReplacements(this string text, List<Replacement> replacements )
+        public static string SubstituteReplacements( this string text, List<Replacement> replacements )
         {
             var inversed = replacements.
                 OrderByDescending( x => ( x.Translation ?? x.Substitute ).Length ).ThenByDescending( x => x.Translation ?? x.Substitute );

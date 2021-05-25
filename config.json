@@ -1,10 +1,10 @@
 {
   "translate_url": "https://translate.api.cloud.yandex.net/translate/v2/translate",
   "token_url": "https://iam.api.cloud.yandex.net/iam/v1/tokens",
-  "token_date": "2021-04-23T22:01:30.471751Z",
+  "token_date": "2021-05-24T20:49:31.6498395Z",
   "folder_id": "b1gdferkuq1jnlghakra",
   "oauth_token": "AgAAAAAFAQhYAATuwcRvVBrj9U6BvmpzDl5ty3s",
-  "iam_token": "t1.9euelZqPmZLJncvGyceMlJSWicjGxu3rnpWakpnOy42ampORiZSbmZyam8fl8_cFSnV7-e8nTQYf_t3z90V4cnv57ydNBh_-.vKyI-MRYa03k8pBX5Ja7BnSgczAKgnMkZ9FT7AfUXtQuAYahvIZ7lHlDtRL7a87x1MCtEPlielb088LyVS7oCg",
+  "iam_token": "t1.9euelZqNip6Ny5adyZyJnZCLyo-eju3rnpWakpnOy42ampORiZSbmZyam8fl8_dkLlJ6-e8geRBK_d3z9yRdT3r57yB5EEr9.JtEqVLIqWk4REfMLSa7CNxjSiRW5YPtlo4rhA0Nkzuf8wh7O9IBuq4bByjseaFL9etNICNixD9rSWpBZwZaADQ",
   "cloud_id": "b1g482ke43jcd1bs4b36",
   "SingleRequestSize": 4000,
   "FormulaReplacement": "dish",

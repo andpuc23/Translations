@@ -35,12 +35,19 @@ namespace IO
             string encoding = text.Substring( encodingStart, encodingEnd - encodingStart ).Trim();
 
             RegisterProvider( CodePagesEncodingProvider.Instance );
-            switch (encoding)
+            try
             {
-                case "UTF8":
-                    return Encoding.UTF8;
-                default:
-                    return Encoding.GetEncoding( encoding );
+                switch ( encoding )
+                {
+                    case "UTF8":
+                        return Encoding.UTF8;
+                    default:
+                        return Encoding.GetEncoding( encoding );
+                }
+            }catch (Exception e )
+            {
+                Writer.Log( e.Message );
+                return Encoding.UTF8;
             }
         }
     }

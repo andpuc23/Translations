@@ -32,7 +32,12 @@ namespace IO
 
         public static void WriteText(string text, string filePath )
         {
-            using (var sw = new StreamWriter(filePath, false ) )
+            if ( File.Exists( filePath ) )
+            {
+                File.Delete( filePath );
+                File.Create( filePath );
+            }
+            using (var sw = new StreamWriter(filePath, false) )
             {
                 sw.Write( text );
             }

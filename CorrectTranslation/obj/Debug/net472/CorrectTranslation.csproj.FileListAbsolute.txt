@@ -28,3 +28,4 @@ D:\Dick-lom\Dickлом\CorrectTranslation\CorrectTranslation\obj\Debug\net472\Co
 D:\Dick-lom\Dickлом\CorrectTranslation\CorrectTranslation\obj\Debug\net472\CorrectTranslation.csproj.CopyComplete
 D:\Dick-lom\Dickлом\CorrectTranslation\CorrectTranslation\obj\Debug\net472\CorrectTranslation.exe
 D:\Dick-lom\Dickлом\CorrectTranslation\CorrectTranslation\obj\Debug\net472\CorrectTranslation.pdb
+D:\Dick-lom\Dickлом\CorrectTranslation\CorrectTranslation\obj\Debug\net472\CorrectTranslation.EncodingForm.resources
